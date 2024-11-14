@@ -25,12 +25,14 @@ public class MovementPlayerOne : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
+            
         }
 
         //Move left
         if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
+            
         }
 
         //Move back
