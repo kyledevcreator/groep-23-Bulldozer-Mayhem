@@ -30,6 +30,7 @@ public class MovementPlayerOne : MonoBehaviour
 
             transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
             
+
         }
 
         //Move left
@@ -37,7 +38,6 @@ public class MovementPlayerOne : MonoBehaviour
         {
 
             transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
-            
 
         }
 
