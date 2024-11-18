@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class MovementPlayerOne : MonoBehaviour
@@ -32,15 +33,15 @@ public class MovementPlayerOne : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
-            
+           
         }
 
         //Move back
         if(Input.GetKey(KeyCode.S))
         {
             transform.Translate(-transform.forward * Time.deltaTime);
+            
         }
-
 
     }
 }
