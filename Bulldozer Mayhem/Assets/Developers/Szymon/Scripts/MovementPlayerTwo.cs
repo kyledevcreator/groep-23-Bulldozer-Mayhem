@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementPlayerTwo : MonoBehaviour
@@ -9,36 +7,43 @@ public class MovementPlayerTwo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
+
 
     void Update()
     {
         //Move forward
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            transform.Translate(transform.forward * Time.deltaTime);
-            Debug.Log("W key was pressed");
+            //   transform.Translate(transform.forward * Time.deltaTime * movementSpeed, Space.World);
+            transform.Translate(0, 0, 1 * Time.deltaTime * movementSpeed);
+
         }
 
         //Move right
         if (Input.GetKey(KeyCode.RightArrow))
         {
+
             transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
+
+
         }
 
         //Move left
         if (Input.GetKey(KeyCode.LeftArrow))
         {
+
             transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
+
         }
 
         //Move back
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            transform.Translate(-transform.forward * Time.deltaTime);
-        }
 
+            transform.Translate(0, 0, -1 * Time.deltaTime * movementSpeed);
+
+        }
 
     }
 }

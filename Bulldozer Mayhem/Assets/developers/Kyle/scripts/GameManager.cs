@@ -61,10 +61,13 @@ public class GameManager : MonoBehaviour
 
         // Enable gravity and make it fall
         Rigidbody rigidBody = platform.GetComponent<Rigidbody>();
+        Collider collider = platform.GetComponent<Collider>();
         if (rigidBody != null)
         {
             rigidBody.isKinematic = false;
             rigidBody.useGravity = true;
+            collider.enabled = false;
+            rigidBody.drag = 0.2f;
         }
 
         // Destroy the platform after 5 seconds and remove it from the list

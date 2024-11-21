@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Developers/Kyle/kyle room.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Developers/Szymon/Szymon death boundary.unity
     guid: 67937950ceeb1e84fb677af5d5f06e67
+  - enabled: 1
+    path: Assets/Main scene/MainGame.unity
+    guid: 51fee066c7bc3f24283d352a8f941567
   m_configObjects: {}
