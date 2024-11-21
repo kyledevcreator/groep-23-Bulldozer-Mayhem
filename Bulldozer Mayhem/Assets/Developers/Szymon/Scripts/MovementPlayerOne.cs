@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class MovementPlayerOne : MonoBehaviour
@@ -12,16 +9,15 @@ public class MovementPlayerOne : MonoBehaviour
     {
     }
 
-    
+
     void Update()
     {
         //Move forward
         if (Input.GetKey(KeyCode.W))
         {
+            //   transform.Translate(transform.forward * Time.deltaTime * movementSpeed, Space.World);
+            transform.Translate(0, 0, 1 * Time.deltaTime * movementSpeed);
 
-            transform.Translate(transform.forward * Time.deltaTime);
-            
-            
         }
 
         //Move right
@@ -29,7 +25,7 @@ public class MovementPlayerOne : MonoBehaviour
         {
 
             transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
-            
+
 
         }
 
@@ -38,16 +34,17 @@ public class MovementPlayerOne : MonoBehaviour
         {
 
             transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
-            
+
         }
 
         //Move back
-        if(Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
 
-            transform.Translate(-transform.forward * Time.deltaTime);
-            
+            transform.Translate(0, 0, -1 * Time.deltaTime * movementSpeed);
+
         }
 
     }
 }
+
