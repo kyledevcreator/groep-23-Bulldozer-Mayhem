@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private List<GameObject> platforms;
     [SerializeField] private float minDelay, maxDelay;
+
+    public Material SecondMaterial;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +29,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     private void PlatformFall()
     {
         int i = Random.Range(0, platforms.Count);
@@ -32,16 +37,38 @@ public class GameManager : MonoBehaviour
 
         if (platforms[i].activeInHierarchy)
         {
-            platforms[i].GetComponent<Rigidbody>().useGravity = true;
-            Destroy(platforms[i], 5);
-            platforms.Remove(platforms[i]);
+            StartCoroutine(ChangeColorAndFall(platforms[i]));
         }
         else if (platforms[i] == null)
         {
+            // Retry with a different platform if the selected one is null
             i = Random.Range(0, platforms.Count);
             PlatformFall();
         }
+    }
 
+    private IEnumerator ChangeColorAndFall(GameObject platform)
+    {
+        // Change the material color
+        Renderer renderer = platform.GetComponent<Renderer>();
+        if (renderer != null && SecondMaterial != null)
+        {
+            renderer.material = SecondMaterial;
+        }
 
+        // Wait for a short time before making the platform fall
+        yield return new WaitForSeconds(3.0f); // Adjust the delay as needed
+
+        // Enable gravity and make it fall
+        Rigidbody rigidBody = platform.GetComponent<Rigidbody>();
+        if (rigidBody != null)
+        {
+            rigidBody.isKinematic = false;
+            rigidBody.useGravity = true;
+        }
+
+        // Destroy the platform after 5 seconds and remove it from the list
+        Destroy(platform, 5);
+        platforms.Remove(platform);
     }
 }

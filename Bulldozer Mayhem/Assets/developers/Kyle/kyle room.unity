@@ -723,6 +723,8 @@ MonoBehaviour:
   - {fileID: 854949369}
   minDelay: 3
   maxDelay: 8
+  MyMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  myColor: {r: 0.9433962, g: 0, b: 0, a: 1}
 --- !u!4 &796960268
 Transform:
   m_ObjectHideFlags: 0
