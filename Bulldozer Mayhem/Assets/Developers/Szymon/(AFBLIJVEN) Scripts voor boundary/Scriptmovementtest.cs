@@ -18,9 +18,8 @@ public class Scriptmovementtest : MonoBehaviour
         //Move forward
         if (Input.GetKey(KeyCode.W))
         {
-
-            transform.Translate(transform.forward * Time.deltaTime);
-
+            //   transform.Translate(transform.forward * Time.deltaTime * movementSpeed, Space.World);
+            transform.Translate(0, 0, 1 * Time.deltaTime * movementSpeed);
 
         }
 
@@ -45,7 +44,7 @@ public class Scriptmovementtest : MonoBehaviour
         if (Input.GetKey(KeyCode.S))
         {
 
-            transform.Translate(-transform.forward * Time.deltaTime);
+            transform.Translate(0, 0, -1 * Time.deltaTime * movementSpeed);
 
         }
 
