@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour
 {
-    void Start()
+    public void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    void Update()
-    {
-        
+        if (other.CompareTag("Player"))
+            {
+                other.gameObject.transform.position = Vector3.up;
+            }
     }
 }
