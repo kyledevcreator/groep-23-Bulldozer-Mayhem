@@ -123,6 +123,89 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &1626527
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e5bb8820ccc933545842df5292fa357a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.98328626
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e5bb8820ccc933545842df5292fa357a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.98328626
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e5bb8820ccc933545842df5292fa357a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.98328626
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e5bb8820ccc933545842df5292fa357a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 55.414
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e5bb8820ccc933545842df5292fa357a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 58.29
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e5bb8820ccc933545842df5292fa357a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.6003
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e5bb8820ccc933545842df5292fa357a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e5bb8820ccc933545842df5292fa357a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e5bb8820ccc933545842df5292fa357a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e5bb8820ccc933545842df5292fa357a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e5bb8820ccc933545842df5292fa357a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e5bb8820ccc933545842df5292fa357a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e5bb8820ccc933545842df5292fa357a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e5bb8820ccc933545842df5292fa357a,
+        type: 3}
+      propertyPath: m_Name
+      value: 'Omheining Construction site unity scale '
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e5bb8820ccc933545842df5292fa357a, type: 3}
 --- !u!1001 &289264163
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -342,8 +425,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Omheining Construction site
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 23f526b2abc16dc478bd8ca916de544e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4103881766339141800, guid: 23f526b2abc16dc478bd8ca916de544e, type: 3}
+    - {fileID: -6792889981931915972, guid: 23f526b2abc16dc478bd8ca916de544e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23f526b2abc16dc478bd8ca916de544e, type: 3}
@@ -661,7 +751,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 1000
-  field of view: 60
+  field of view: 65.7
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -688,7 +778,7 @@ Transform:
   m_GameObject: {fileID: 1439293352}
   serializedVersion: 2
   m_LocalRotation: {x: -0.32112274, y: -0.63122994, z: 0.32287997, w: -0.6278356}
-  m_LocalPosition: {x: 77.81, y: 133.12053, z: 3.0680196}
+  m_LocalPosition: {x: 77.6, y: 134.45, z: 3.0680196}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -925,3 +1015,4 @@ SceneRoots:
   - {fileID: 1352592696}
   - {fileID: 1913949960}
   - {fileID: 1165356504}
+  - {fileID: 1626527}
