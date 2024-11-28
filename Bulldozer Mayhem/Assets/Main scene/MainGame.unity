@@ -639,7 +639,11 @@ MonoBehaviour:
   minDelayObjectSpawn: 2
   maxDelayObjectSpawn: 8
   spawnDelay: 16
-  spawnedObjects: []
+  spawnedObjects:
+  - {fileID: 751222790441274596, guid: 23641f0abb3f6a040b045280b2df8a1b, type: 3}
+  - {fileID: 751222790441274596, guid: 23641f0abb3f6a040b045280b2df8a1b, type: 3}
+  - {fileID: 751222790441274596, guid: 23641f0abb3f6a040b045280b2df8a1b, type: 3}
+  - {fileID: 751222790441274596, guid: 23641f0abb3f6a040b045280b2df8a1b, type: 3}
   objectLifetime: 5
   SecondMaterial: {fileID: 2100000, guid: 85dca4c08ce8c9941af2385f11a7c41a, type: 2}
 --- !u!4 &435318866
@@ -2291,6 +2295,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4128221402815674217, guid: 87fd0ca1e0fb33f42a9ba70b88bc5596,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cad93c5c1a0a15b4384eaa8c7eac420e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
