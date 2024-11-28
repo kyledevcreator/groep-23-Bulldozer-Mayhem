@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -9,6 +7,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private List<GameObject> platforms;
     [SerializeField] private float minDelay, maxDelay;
+    [SerializeField] private float minDelayObjectSpawn, maxDelayObjectSpawn, spawnDelay;
+
+    [SerializeField] private List<GameObject> spawnedObjects = new List<GameObject>();
+
+    public float objectLifetime = 5f;
 
     public Material SecondMaterial;
 
@@ -16,6 +19,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(StartNewRound());
         StartCoroutine(GravityDelay());
     }
 
@@ -73,5 +77,33 @@ public class GameManager : MonoBehaviour
         // Destroy the platform after 5 seconds and remove it from the list
         Destroy(platform, 5);
         platforms.Remove(platform);
+    }
+
+    private IEnumerator StartNewRound()
+    {
+        yield return new WaitForSeconds(spawnDelay);
+
+        for (int i = 0; i < 4; i++)
+        {
+            float randomTime = Random.Range(minDelayObjectSpawn, maxDelayObjectSpawn);
+            GameObject newObject = Instantiate(spawnedObjects[i], GetRandomPosition(), Quaternion.identity);
+            StartCoroutine(DestroyAfterTime(newObject, objectLifetime));
+
+            yield return new WaitForSeconds(randomTime);
+        }
+    }
+
+    private IEnumerator DestroyAfterTime(GameObject obj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (obj != null) 
+        {
+            Destroy(obj);
+        }
+    }
+
+    private Vector3 GetRandomPosition()
+    {
+        return new Vector3(Random.Range(-9, 21), 85, Random.Range(-16f, 16f));
     }
 }

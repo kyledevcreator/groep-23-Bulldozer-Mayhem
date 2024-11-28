@@ -4,7 +4,9 @@ public class MovementPlayerOne : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 10f;
     [SerializeField] private float rotationSpeed;
-    private bool hasGrip;
+    //private bool hasGrip;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,8 +15,6 @@ public class MovementPlayerOne : MonoBehaviour
 
     void Update()
     {
-        if (hasGrip)
-        {
             //Move forward
             if (Input.GetKey(KeyCode.W))
             {
@@ -47,18 +47,18 @@ public class MovementPlayerOne : MonoBehaviour
                 transform.Translate(0, 0, -1 * Time.deltaTime * movementSpeed);
 
             }
-        }
 
 
 
-        RaycastHit hit;
 
-        // Perform the raycast
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 2))
-        {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 2, Color.yellow, 2);
-                hasGrip = true; // Set hasGrip to true when the ray hits
-        }
+        //RaycastHit hit;
+
+        //// Perform the raycast
+        //if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 2))
+        //{
+        //        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 2, Color.yellow, 2);
+        //        hasGrip = true; // Set hasGrip to true when the ray hits
+        //}
 
         // Note: Do not reset `hasGrip` to `false` outside this condition.
 
