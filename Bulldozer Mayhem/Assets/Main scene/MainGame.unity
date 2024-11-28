@@ -633,8 +633,14 @@ MonoBehaviour:
   - {fileID: 1102193065}
   - {fileID: 2047297947}
   - {fileID: 497682158}
-  minDelay: 4
-  maxDelay: 10
+  minDelay: 2
+  maxDelay: 8
+  spawnDelayPlatform: 12
+  minDelayObjectSpawn: 2
+  maxDelayObjectSpawn: 8
+  spawnDelay: 16
+  spawnedObjects: []
+  objectLifetime: 5
   SecondMaterial: {fileID: 2100000, guid: 85dca4c08ce8c9941af2385f11a7c41a, type: 2}
 --- !u!4 &435318866
 Transform:

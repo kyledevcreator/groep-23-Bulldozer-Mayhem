@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
 
     [SerializeField] private List<GameObject> platforms;
-    [SerializeField] private float minDelay, maxDelay;
+    [SerializeField] private float minDelay, maxDelay, spawnDelayPlatform;
     [SerializeField] private float minDelayObjectSpawn, maxDelayObjectSpawn, spawnDelay;
 
     [SerializeField] private List<GameObject> spawnedObjects = new List<GameObject>();
@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator ChangeColorAndFall(GameObject platform)
     {
+        yield return new WaitForSeconds(spawnDelayPlatform);
+
         // Change the material color
         Renderer renderer = platform.GetComponent<Renderer>();
         if (renderer != null && SecondMaterial != null)
@@ -104,6 +106,6 @@ public class GameManager : MonoBehaviour
 
     private Vector3 GetRandomPosition()
     {
-        return new Vector3(Random.Range(-9, 21), 85, Random.Range(-16f, 16f));
+        return new Vector3(Random.Range(-9, 21), 105, Random.Range(-16f, 16f));
     }
 }
