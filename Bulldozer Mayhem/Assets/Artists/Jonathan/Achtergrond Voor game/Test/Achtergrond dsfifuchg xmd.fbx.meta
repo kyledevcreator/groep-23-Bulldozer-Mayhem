@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7dd47dfada073f747bd07d197a29bf19
+guid: daba0d267ef09b642b2b355ae9a24576
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -35,7 +35,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.47
+    globalScale: 1.45
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -72,7 +72,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 3
+    tangentImportMode: 1
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
@@ -90,7 +90,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.0047
+    globalScale: 0.0145000005
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
