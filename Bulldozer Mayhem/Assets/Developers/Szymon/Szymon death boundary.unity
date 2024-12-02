@@ -277,7 +277,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &556622600
+--- !u!114 &556622604
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,11 +286,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 556622593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcd8dd5537fd8d743ab06de431cbed1d, type: 3}
+  m_Script: {fileID: 11500000, guid: 205ffe2fa569dd7459f659411d2ef1ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
   rotationSpeed: 100
+  player: 1
 --- !u!1 &612502925
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +304,7 @@ GameObject:
   - component: {fileID: 612502928}
   - component: {fileID: 612502927}
   - component: {fileID: 612502926}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -576,6 +577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 10
   rotationSpeed: 100
+  player: 0
 --- !u!1 &1689627421
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,7 +931,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e9cc6d1839b1a8742b9c0692c1620d61,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 556622600}
+      addedObject: {fileID: 556622604}
   m_SourcePrefab: {fileID: 100100000, guid: e9cc6d1839b1a8742b9c0692c1620d61, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
