@@ -18,7 +18,7 @@ public class Knockback : MonoBehaviour
         
         if (other.gameObject.tag == "Front")
         {
-            rb.AddForce(-transform.forward * force, ForceMode.Impulse);
+            rb.AddForce(-transform.forward * force * 2, ForceMode.Impulse);
 
             StartCoroutine(DisableMovement());
 
@@ -28,7 +28,7 @@ public class Knockback : MonoBehaviour
 
         if (other.gameObject.tag == "Back")
         {
-            OpponentRb.AddForce(transform.forward * force * 3, ForceMode.Impulse);
+            OpponentRb.AddForce(transform.forward * force * 5, ForceMode.Impulse);
             rb.AddForce(-transform.forward * force, ForceMode.Impulse);
 
             StartCoroutine(DisableMovement());
@@ -36,17 +36,41 @@ public class Knockback : MonoBehaviour
             Debug.Log("Back hit");
         }
 
+        if (other.gameObject.tag == "Left")
+        {
+            OpponentRb.AddForce(transform.forward * force * 3, ForceMode.Impulse);
+            rb.AddForce(-transform.forward * force, ForceMode.Impulse);
+
+            StartCoroutine(DisableMovement());
+
+            Debug.Log("Left hit");
+        }
+
+        if (other.gameObject.tag == "Right")
+        {
+            OpponentRb.AddForce(transform.forward * force * 3, ForceMode.Impulse);
+            rb.AddForce(-transform.forward * force, ForceMode.Impulse);
+
+            StartCoroutine(DisableMovement());
+
+            Debug.Log("Right hit");
+        }
+
     }
+
 
     IEnumerator DisableMovement()
     {
         if (MovementScriptP1 && MovementScriptP2 != null)
         {
+
+            //Zet het Movement script uit voor een halve seconde wanneer de spelers colliden.
             MovementScriptP1.enabled = false;
             MovementScriptP2.enabled = false;
 
             yield return new WaitForSeconds(DisableTime);
 
+            //Zet het Movement script weer aan.
             MovementScriptP1.enabled = true;
             MovementScriptP2.enabled = true;
         }
