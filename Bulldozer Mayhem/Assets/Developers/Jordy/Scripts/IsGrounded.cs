@@ -18,16 +18,19 @@ public class IsGrounded : MonoBehaviour
         Quaternion baseRotation = Quaternion.Euler(0f, 0f, 0f);
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, GroundDistance, GroundLayer);
+        Vector3 currentRotation = gameObject.transform.eulerAngles;
+        currentRotation.x = 0f;
 
         if (isGrounded == false)
         {
-            //rb.transform.rotation = Quaternion.Slerp(transform.rotation, baseRotation, Time.deltaTime * rotationSpeed);
+            Debug.Log("Mid-air");
             PlayerMovement.enabled = false;
         }
 
         if (isGrounded == true)
         {
-            PlayerMovement.enabled = true;
+
         }
+
     }
 }
