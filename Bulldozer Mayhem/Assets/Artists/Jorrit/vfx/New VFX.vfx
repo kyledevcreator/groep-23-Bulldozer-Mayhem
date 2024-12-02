@@ -19,8 +19,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 657
     y: -291
-    width: 2413
-    height: 2354
+    width: 1176
+    height: 2822
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2432,7 +2432,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 1442, y: 892}
+  m_UIPosition: {x: 1409, y: 877}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -2520,7 +2520,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614721}
   - {fileID: 8926484042661614723}
   - {fileID: 8926484042661614725}
-  m_UIPosition: {x: 1441, y: 1113}
+  m_UIPosition: {x: 1408, y: 1099}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -3003,9 +3003,9 @@ MonoBehaviour:
   - {fileID: 8926484042661614728}
   - {fileID: 8926484042661614751}
   dataType: 1
-  capacity: 2880
-  stripCapacity: 32
-  particlePerStripCount: 90
+  capacity: 2000
+  stripCapacity: 100
+  particlePerStripCount: 20
   needsComputeBounds: 0
   boundsMode: 0
   m_Space: 0
@@ -3184,7 +3184,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 3
+      m_SerializableObject: 1.03
     m_Space: 2147483647
   m_Property:
     name: Lifetime
@@ -3243,7 +3243,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661614730}
-  m_UIPosition: {x: 1441, y: 1554}
+  m_UIPosition: {x: 1408, y: 1539}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -3992,7 +3992,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614754}
   - {fileID: 8926484042661614756}
   - {fileID: 8926484042661614759}
-  m_UIPosition: {x: 1441, y: 1988}
+  m_UIPosition: {x: 1408, y: 1973}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -4143,7 +4143,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 8926484042661614751}
   m_Children: []
-  m_UIPosition: {x: 0, y: 90}
+  m_UIPosition: {x: 0, y: 91}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -4241,7 +4241,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 8926484042661614751}
   m_Children: []
-  m_UIPosition: {x: 0, y: 201}
+  m_UIPosition: {x: 0, y: 202}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
