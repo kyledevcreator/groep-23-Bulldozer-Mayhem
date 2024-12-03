@@ -8,8 +8,7 @@ public class Knockback : MonoBehaviour
     public Rigidbody rb;
     public Rigidbody OpponentRb;
 
-    public MonoBehaviour MovementScriptP1;
-    public MonoBehaviour MovementScriptP2;
+    public MonoBehaviour MovementScriptPlayer;
     public float DisableTime = 0.5f;
 
 
@@ -61,18 +60,16 @@ public class Knockback : MonoBehaviour
 
     IEnumerator DisableMovement()
     {
-        if (MovementScriptP1 && MovementScriptP2 != null)
+        if (MovementScriptPlayer != null)
         {
 
             //Zet het Movement script uit voor een halve seconde wanneer de spelers colliden.
-            MovementScriptP1.enabled = false;
-            MovementScriptP2.enabled = false;
+            MovementScriptPlayer.enabled = false;
 
             yield return new WaitForSeconds(DisableTime);
 
             //Zet het Movement script weer aan.
-            MovementScriptP1.enabled = true;
-            MovementScriptP2.enabled = true;
+            MovementScriptPlayer.enabled = true;
         }
     }
 

@@ -21,16 +21,42 @@ public class IsGrounded : MonoBehaviour
         Vector3 currentRotation = gameObject.transform.eulerAngles;
         currentRotation.x = 0f;
 
-        if (isGrounded == false)
-        {
-            Debug.Log("Mid-air");
-            PlayerMovement.enabled = false;
-        }
 
         if (isGrounded == true)
         {
-
+            Grounded();
         }
 
+        if (isGrounded == false)
+        {
+            Midair();
+        }
+
+    }
+
+
+    void Grounded()
+    {
+        PlayerMovement.enabled = true;
+        Debug.Log("Player is Grounded");
+    }
+
+    void Midair()
+    {
+        PlayerMovement.enabled = false;
+        Debug.Log("Player is off the ground");
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            isGrounded = true;
+        }
+        else 
+        { 
+            isGrounded = false;
+        }
     }
 }
