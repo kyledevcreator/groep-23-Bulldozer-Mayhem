@@ -8,7 +8,6 @@ public class sparks : MonoBehaviour
     [SerializeField] private VisualEffect sparksVFX;
     
 
-    // Start is called before the first frame update
 
     void OnTriggerEnter(Collider other)
     {
