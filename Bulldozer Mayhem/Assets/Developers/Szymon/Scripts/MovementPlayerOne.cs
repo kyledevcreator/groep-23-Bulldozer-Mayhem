@@ -21,7 +21,18 @@ public class MovementPlayerOne : MonoBehaviour
          if (collision.gameObject.layer == 3)
          {
              hasGrip = true;
+            
          }
+        Debug.Log(collision.gameObject);
+        Debug.Log(collision.gameObject.layer);
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.layer == 3)
+        {
+            hasGrip = true;
+        }
     }
 
     private void OnCollisionExit(Collision collision)
@@ -30,6 +41,7 @@ public class MovementPlayerOne : MonoBehaviour
         {
             hasGrip = false;
         }
+        Debug.Log("Collision ended");
     }
 
     void Update()
