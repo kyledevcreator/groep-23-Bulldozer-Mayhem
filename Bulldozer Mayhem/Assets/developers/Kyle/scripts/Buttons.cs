@@ -12,7 +12,7 @@ public class Buttons : MonoBehaviour
     }
     public void PlayGame()
     {
-        SceneManager.LoadScene("MainG");
+        SceneManager.LoadScene("MainGame");
         Time.timeScale = 1;
     }
 

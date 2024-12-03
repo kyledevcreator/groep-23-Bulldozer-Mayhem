@@ -9,7 +9,9 @@ public class MovementPlayerOne : MonoBehaviour
     private enum PlayerEnum
     {
         Player1,
-        Player2
+        Player2,
+
+
     }
 
     [SerializeField] private PlayerEnum player;
@@ -114,6 +116,7 @@ public class MovementPlayerOne : MonoBehaviour
             }
 
         }
+       
         //Move forward
 
 
