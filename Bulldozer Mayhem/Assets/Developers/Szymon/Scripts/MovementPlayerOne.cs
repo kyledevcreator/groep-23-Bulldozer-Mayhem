@@ -10,7 +10,7 @@ public class MovementPlayerOne : MonoBehaviour
     {
         Player1,
         Player2,
-        Player3,
+
 
     }
 
@@ -116,44 +116,7 @@ public class MovementPlayerOne : MonoBehaviour
             }
 
         }
-        else if (hasGrip && player == PlayerEnum.Player3)
-        {
-            //Move forward
-            if (Input.GetKey(KeyCode.Y))
-            {
-                //   transform.Translate(transform.forward * Time.deltaTime * movementSpeed, Space.World);
-                transform.Translate(0, 0, 1 * Time.deltaTime * movementSpeed);
-
-            }
-
-            //Move right
-            if (Input.GetKey(KeyCode.J))
-            {
-
-                transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
-
-
-            }
-
-            //Move left
-            if (Input.GetKey(KeyCode.G))
-            {
-
-                transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
-
-            }
-
-            //Move back
-            if (Input.GetKey(KeyCode.H))
-
-
-            {
-
-                transform.Translate(0, 0, -1 * Time.deltaTime * movementSpeed);
-
-            }
-
-        }
+       
         //Move forward
 
 
