@@ -952,10 +952,10 @@ MonoBehaviour:
   maxDelayObjectSpawn: 8
   spawnDelay: 16
   spawnedObjects:
-  - {fileID: 919132149155446097, guid: b89f7db4d40429844a519063d2b9eda5, type: 3}
-  - {fileID: 919132149155446097, guid: b89f7db4d40429844a519063d2b9eda5, type: 3}
-  - {fileID: 919132149155446097, guid: b89f7db4d40429844a519063d2b9eda5, type: 3}
-  - {fileID: 919132149155446097, guid: b89f7db4d40429844a519063d2b9eda5, type: 3}
+  - {fileID: 9059670098177286789, guid: 0fa1306f2f2ec9a458b66c42d103a4d7, type: 3}
+  - {fileID: 9059670098177286789, guid: 0fa1306f2f2ec9a458b66c42d103a4d7, type: 3}
+  - {fileID: 9059670098177286789, guid: 0fa1306f2f2ec9a458b66c42d103a4d7, type: 3}
+  - {fileID: 9059670098177286789, guid: 0fa1306f2f2ec9a458b66c42d103a4d7, type: 3}
   objectLifetime: 5
   SecondMaterial: {fileID: 2100000, guid: 85dca4c08ce8c9941af2385f11a7c41a, type: 2}
 --- !u!4 &435318866
