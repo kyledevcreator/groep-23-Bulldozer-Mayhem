@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(spawnDelay);
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 23; i++)
         {
             float randomTime = Random.Range(minDelayObjectSpawn, maxDelayObjectSpawn);
             GameObject newObject = Instantiate(spawnedObjects[i], GetRandomPosition(), Quaternion.identity);
