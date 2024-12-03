@@ -9,7 +9,9 @@ public class MovementPlayerOne : MonoBehaviour
     private enum PlayerEnum
     {
         Player1,
-        Player2
+        Player2,
+        Player3,
+
     }
 
     [SerializeField] private PlayerEnum player;
@@ -107,6 +109,44 @@ public class MovementPlayerOne : MonoBehaviour
 
             //Move back
             if (Input.GetKey(KeyCode.DownArrow))
+            {
+
+                transform.Translate(0, 0, -1 * Time.deltaTime * movementSpeed);
+
+            }
+
+        }
+        else if (hasGrip && player == PlayerEnum.Player3)
+        {
+            //Move forward
+            if (Input.GetKey(KeyCode.Y))
+            {
+                //   transform.Translate(transform.forward * Time.deltaTime * movementSpeed, Space.World);
+                transform.Translate(0, 0, 1 * Time.deltaTime * movementSpeed);
+
+            }
+
+            //Move right
+            if (Input.GetKey(KeyCode.J))
+            {
+
+                transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
+
+
+            }
+
+            //Move left
+            if (Input.GetKey(KeyCode.G))
+            {
+
+                transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
+
+            }
+
+            //Move back
+            if (Input.GetKey(KeyCode.H))
+
+
             {
 
                 transform.Translate(0, 0, -1 * Time.deltaTime * movementSpeed);
