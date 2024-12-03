@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: a008dfed8ca5b3143ac36d92ba6babfc
+=======
+guid: f01ebfb78743f3f4ba5d42be3d816bae
+>>>>>>> parent of 1ae8818 (changes own scene (eden))
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
