@@ -12,7 +12,6 @@ public class sparks : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(ExplosionTime());
         sparksVFX.Stop();
 
     }
@@ -26,6 +25,7 @@ public class sparks : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            StartCoroutine(ExplosionTime());
             Explosion();
         }
 
