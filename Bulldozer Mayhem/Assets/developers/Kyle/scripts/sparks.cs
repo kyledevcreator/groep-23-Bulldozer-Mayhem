@@ -13,14 +13,9 @@ public class sparks : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Explosion();
-            sparksVFX.Stop();
+            sparksVFX.Play();
         }
-
     }
 
-    public void Explosion()
-    {
-        sparksVFX.Play();
-    }
+
 }
