@@ -23,8 +23,6 @@ public class MovementPlayerOne : MonoBehaviour
              hasGrip = true;
             
          }
-        Debug.Log(collision.gameObject);
-        Debug.Log(collision.gameObject.layer);
     }
 
     private void OnCollisionStay(Collision collision)
