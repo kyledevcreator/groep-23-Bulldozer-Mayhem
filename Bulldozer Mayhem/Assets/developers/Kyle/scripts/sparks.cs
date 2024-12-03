@@ -19,7 +19,7 @@ public class sparks : MonoBehaviour
     IEnumerator ExplosionTime()
     {
         yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     void OnTriggerEnter(Collider other)
