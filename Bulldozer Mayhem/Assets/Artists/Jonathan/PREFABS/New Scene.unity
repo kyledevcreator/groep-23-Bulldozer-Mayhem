@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &1907543435
+--- !u!1001 &7461204174281348422
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -134,22 +134,22 @@ PrefabInstance:
     - target: {fileID: 2804530724328995921, guid: 39f0d4f71ed9a3747a18c8bf6d635dd8,
         type: 3}
       propertyPath: m_Name
-      value: Enviroment versie 1
+      value: Enviroment voor de main scene
       objectReference: {fileID: 0}
     - target: {fileID: 3098799993965758707, guid: 39f0d4f71ed9a3747a18c8bf6d635dd8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 43.479645
+      value: 45.96777
       objectReference: {fileID: 0}
     - target: {fileID: 3098799993965758707, guid: 39f0d4f71ed9a3747a18c8bf6d635dd8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 114.56678
+      value: 220.82477
       objectReference: {fileID: 0}
     - target: {fileID: 3098799993965758707, guid: 39f0d4f71ed9a3747a18c8bf6d635dd8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.2912254
+      value: -0.31391048
       objectReference: {fileID: 0}
     - target: {fileID: 3098799993965758707, guid: 39f0d4f71ed9a3747a18c8bf6d635dd8,
         type: 3}
@@ -195,4 +195,4 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1907543435}
+  - {fileID: 7461204174281348422}
