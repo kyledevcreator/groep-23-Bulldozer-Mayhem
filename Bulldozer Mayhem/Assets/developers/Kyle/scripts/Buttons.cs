@@ -32,11 +32,17 @@ public class Buttons : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
-    private void PlayGame()
+    public void PlayGame()
     {
         SceneManager.LoadScene("MainGame");
         Time.timeScale = 1;
         
+    }
+
+    public void Controls()
+    {
+        SceneManager.LoadScene(1);
+        Time.timeScale = 1;
     }
 
     public void BackToMenu()
