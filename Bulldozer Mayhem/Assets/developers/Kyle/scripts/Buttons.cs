@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
-    private bool isPaused = false; 
+    private bool isPaused = false;
+
 
     private void Start()
     {
@@ -30,10 +32,11 @@ public class Buttons : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
-    public void PlayGame()
+    private void PlayGame()
     {
         SceneManager.LoadScene("MainGame");
         Time.timeScale = 1;
+        
     }
 
     public void BackToMenu()
