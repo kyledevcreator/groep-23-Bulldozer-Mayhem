@@ -186,6 +186,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4730002590642770482, guid: 39f0d4f71ed9a3747a18c8bf6d635dd8,
+        type: 3}
+      propertyPath: m_Name
+      value: Lurker
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399685004819220616, guid: 39f0d4f71ed9a3747a18c8bf6d635dd8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 134.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399685004819220616, guid: 39f0d4f71ed9a3747a18c8bf6d635dd8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -72.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399685004819220616, guid: 39f0d4f71ed9a3747a18c8bf6d635dd8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7616987
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399685004819220616, guid: 39f0d4f71ed9a3747a18c8bf6d635dd8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.1016969
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399685004819220616, guid: 39f0d4f71ed9a3747a18c8bf6d635dd8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6278959
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399685004819220616, guid: 39f0d4f71ed9a3747a18c8bf6d635dd8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.123368226
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399685004819220616, guid: 39f0d4f71ed9a3747a18c8bf6d635dd8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 79
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399685004819220616, guid: 39f0d4f71ed9a3747a18c8bf6d635dd8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 18.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
