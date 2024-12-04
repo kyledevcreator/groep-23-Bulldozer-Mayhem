@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Knockback : MonoBehaviour
 {
-    [SerializeField] private float force = 125.0f;
+    [SerializeField] private float force = 500.0f;
     public Rigidbody rb;
     public Rigidbody OpponentRb;
 
     public MonoBehaviour MovementScriptPlayer;
-    public float DisableTime = 0.5f;
+    public float DisableTime = 0.8f;
 
 
     private void OnTriggerEnter(Collider other)
@@ -17,7 +17,7 @@ public class Knockback : MonoBehaviour
         
         if (other.gameObject.tag == "Front")
         {
-            rb.AddForce(-transform.forward * force * 2, ForceMode.Impulse);
+            rb.AddForce(-transform.forward * force * 20, ForceMode.Impulse);
 
             StartCoroutine(DisableMovement());
 
@@ -27,8 +27,8 @@ public class Knockback : MonoBehaviour
 
         if (other.gameObject.tag == "Back")
         {
-            OpponentRb.AddForce(transform.forward * force * 5, ForceMode.Impulse);
-            rb.AddForce(-transform.forward * force, ForceMode.Impulse);
+            OpponentRb.AddForce(transform.forward * force * 45, ForceMode.Impulse);
+            rb.AddForce(-transform.forward * force * 15, ForceMode.Impulse);
 
             StartCoroutine(DisableMovement());
 
@@ -37,8 +37,8 @@ public class Knockback : MonoBehaviour
 
         if (other.gameObject.tag == "Left")
         {
-            OpponentRb.AddForce(transform.forward * force * 3, ForceMode.Impulse);
-            rb.AddForce(-transform.forward * force, ForceMode.Impulse);
+            OpponentRb.AddForce(transform.forward * force * 20, ForceMode.Impulse);
+            rb.AddForce(-transform.forward * force * 15, ForceMode.Impulse);
 
             StartCoroutine(DisableMovement());
 
@@ -47,8 +47,8 @@ public class Knockback : MonoBehaviour
 
         if (other.gameObject.tag == "Right")
         {
-            OpponentRb.AddForce(transform.forward * force * 3, ForceMode.Impulse);
-            rb.AddForce(-transform.forward * force, ForceMode.Impulse);
+            OpponentRb.AddForce(transform.forward * force * 20, ForceMode.Impulse);
+            rb.AddForce(-transform.forward * force * 15, ForceMode.Impulse);
 
             StartCoroutine(DisableMovement());
 
