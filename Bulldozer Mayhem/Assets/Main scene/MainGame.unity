@@ -553,9 +553,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3439277788449497374, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
+      propertyPath: force
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439277788449497374, guid: 2952515df85286b4598d658b2850265f,
+        type: 3}
       propertyPath: OpponentRb
       value: 
       objectReference: {fileID: 1477460019}
+    - target: {fileID: 4651817515453161153, guid: 2952515df85286b4598d658b2850265f,
+        type: 3}
+      propertyPath: force
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4651817515453161153, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
       propertyPath: OpponentRb
@@ -563,9 +573,19 @@ PrefabInstance:
       objectReference: {fileID: 1477460019}
     - target: {fileID: 8301423727641331456, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
+      propertyPath: force
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301423727641331456, guid: 2952515df85286b4598d658b2850265f,
+        type: 3}
       propertyPath: OpponentRb
       value: 
       objectReference: {fileID: 1477460019}
+    - target: {fileID: 8844066109338630926, guid: 2952515df85286b4598d658b2850265f,
+        type: 3}
+      propertyPath: force
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8844066109338630926, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
       propertyPath: OpponentRb
@@ -2342,9 +2362,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3439277788449497374, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
+      propertyPath: force
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439277788449497374, guid: 2952515df85286b4598d658b2850265f,
+        type: 3}
       propertyPath: OpponentRb
       value: 
       objectReference: {fileID: 1479292920}
+    - target: {fileID: 4651817515453161153, guid: 2952515df85286b4598d658b2850265f,
+        type: 3}
+      propertyPath: force
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4651817515453161153, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
       propertyPath: OpponentRb
@@ -2352,9 +2382,19 @@ PrefabInstance:
       objectReference: {fileID: 1479292920}
     - target: {fileID: 8301423727641331456, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
+      propertyPath: force
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301423727641331456, guid: 2952515df85286b4598d658b2850265f,
+        type: 3}
       propertyPath: OpponentRb
       value: 
       objectReference: {fileID: 1479292920}
+    - target: {fileID: 8844066109338630926, guid: 2952515df85286b4598d658b2850265f,
+        type: 3}
+      propertyPath: force
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8844066109338630926, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
       propertyPath: OpponentRb
