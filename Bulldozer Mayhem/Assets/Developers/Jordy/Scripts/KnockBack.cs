@@ -9,7 +9,7 @@ public class Knockback : MonoBehaviour
     public Rigidbody OpponentRb;
 
     public MonoBehaviour MovementScriptPlayer;
-    public float DisableTime = 0.8f;
+    public float DisableTime = 1.2f;
 
 
     private void OnTriggerEnter(Collider other)
@@ -17,7 +17,7 @@ public class Knockback : MonoBehaviour
         
         if (other.gameObject.tag == "Front")
         {
-            rb.AddForce(-transform.forward * force * 20, ForceMode.Impulse);
+            rb.AddForce(-transform.forward * force * 25, ForceMode.Impulse);
 
             StartCoroutine(DisableMovement());
 
@@ -27,7 +27,7 @@ public class Knockback : MonoBehaviour
 
         if (other.gameObject.tag == "Back")
         {
-            OpponentRb.AddForce(transform.forward * force * 45, ForceMode.Impulse);
+            OpponentRb.AddForce(transform.forward * force * 90, ForceMode.Impulse);
             rb.AddForce(-transform.forward * force * 15, ForceMode.Impulse);
 
             StartCoroutine(DisableMovement());
