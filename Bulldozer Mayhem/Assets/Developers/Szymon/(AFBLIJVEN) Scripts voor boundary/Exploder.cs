@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -12,12 +9,14 @@ public class Exploder : MonoBehaviour
     {
         Explosion.playRate = 3;
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Front") || other.gameObject.CompareTag("Back") || other.gameObject.CompareTag("Left") || other.gameObject.CompareTag("Right"))
         {
+            Debug.Log("effects play");
+            Explosion.gameObject.transform.position = transform.position;
             Explosion.Play();
         }
     }
-  
+
 }
