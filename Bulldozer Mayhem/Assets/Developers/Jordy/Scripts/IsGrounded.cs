@@ -37,14 +37,12 @@ public class IsGrounded : MonoBehaviour
 
     void Grounded()
     {
-        PlayerMovement.enabled = true;
-        Debug.Log("Player is Grounded");
+
     }
 
     void Midair()
     {
-        PlayerMovement.enabled = false;
-        Debug.Log("Player is off the ground");
+        
     }
 
 
