@@ -6,7 +6,7 @@ public class MovementPlayerOne : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     private bool hasGrip;
 
-    private enum PlayerEnum
+    public enum PlayerEnum
     {
         Player1,
         Player2,
@@ -14,7 +14,7 @@ public class MovementPlayerOne : MonoBehaviour
 
     }
 
-    [SerializeField] private PlayerEnum player;
+    public PlayerEnum player;
 
     // Start is called before the first frame update
 
