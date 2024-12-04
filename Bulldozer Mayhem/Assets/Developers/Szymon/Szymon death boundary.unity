@@ -292,6 +292,19 @@ MonoBehaviour:
   movementSpeed: 10
   rotationSpeed: 100
   player: 1
+--- !u!114 &556622605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556622593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01cc3629a5a2c494b9c0bc8826b53753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Playermovingsound: {fileID: 0}
 --- !u!1 &612502925
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,6 +945,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 556622604}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e9cc6d1839b1a8742b9c0692c1620d61,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 556622605}
   m_SourcePrefab: {fileID: 100100000, guid: e9cc6d1839b1a8742b9c0692c1620d61, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

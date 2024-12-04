@@ -9,7 +9,9 @@ public class MovementPlayerOne : MonoBehaviour
     private enum PlayerEnum
     {
         Player1,
-        Player2
+        Player2,
+
+
     }
 
     [SerializeField] private PlayerEnum player;
@@ -23,8 +25,6 @@ public class MovementPlayerOne : MonoBehaviour
              hasGrip = true;
             
          }
-        Debug.Log(collision.gameObject);
-        Debug.Log(collision.gameObject.layer);
     }
 
     private void OnCollisionStay(Collision collision)
@@ -116,6 +116,7 @@ public class MovementPlayerOne : MonoBehaviour
             }
 
         }
+       
         //Move forward
 
 
