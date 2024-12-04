@@ -5,12 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
-    public KeyCode resetTimeKey = KeyCode.Space; 
-    public float transitionDuration = 2.0f; 
-
-    private bool isResetting = false; 
-    private float elapsedTime = 0.0f; 
-
+    private bool isPaused = false; 
 
     private void Start()
     {
@@ -19,32 +14,14 @@ public class Buttons : MonoBehaviour
 
     void Update()
     {
-
-        if (Input.GetKeyDown(resetTimeKey) && !isResetting)
-        {
-            isResetting = true;
-            elapsedTime = 0.0f;
-        }
-
-        if (isResetting)
-        {
-            elapsedTime += Time.unscaledDeltaTime; 
-            float t = elapsedTime / transitionDuration;
-
-            Time.timeScale = Mathf.Lerp(0, 1, t);
-
-
-            if (t >= 1.0f)
-            {
-                Time.timeScale = 1.0f;
-                isResetting = false;
-            }
-        }
-
-        // Back to menu with Escape key
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            BackToMenu(); // Call BackToMenu when Escape is pressed
+            BackToMenu();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ToggleTimeScale();
         }
     }
 
@@ -59,7 +36,6 @@ public class Buttons : MonoBehaviour
         Time.timeScale = 1;
     }
 
-
     public void BackToMenu()
     {
         SceneManager.LoadScene("MainMenu");
@@ -69,5 +45,19 @@ public class Buttons : MonoBehaviour
     public void Quitgame()
     {
         Application.Quit();
+    }
+
+    private void ToggleTimeScale()
+    {
+        if (isPaused)
+        {
+            Time.timeScale = 1; 
+        }
+        else
+        {
+            Time.timeScale = 0; 
+        }
+
+        isPaused = !isPaused; 
     }
 }
