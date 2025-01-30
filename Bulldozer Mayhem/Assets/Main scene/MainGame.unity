@@ -1042,7 +1042,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &237079702
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1536,7 +1536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &471220526
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3948,6 +3948,7 @@ MonoBehaviour:
   winnerText: {fileID: 907904516}
   player1: {fileID: 1477460016}
   player2: {fileID: 1479292918}
+  controlSceneButton: {fileID: 0}
 --- !u!1 &1935614280
 GameObject:
   m_ObjectHideFlags: 0

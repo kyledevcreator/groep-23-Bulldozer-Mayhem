@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public GameObject player1;
     public GameObject player2;
 
+    public GameObject controlSceneButton; // Assign in Inspector
+
     private int playersAlive = 2;
 
     // Start is called before the first frame update
@@ -29,6 +31,11 @@ public class GameManager : MonoBehaviour
         StartCoroutine(StartNewRound());
         StartCoroutine(GravityDelay());
         winnerPanel.SetActive(false); // Hide the winner panel initially
+
+        if (controlSceneButton != null)
+        {
+            controlSceneButton.SetActive(false); // Hide button at start
+        }
     }
 
     private IEnumerator GravityDelay()
@@ -146,6 +153,11 @@ public class GameManager : MonoBehaviour
 
         winnerPanel.SetActive(true); // Show the winner panel
         Time.timeScale = 0f; // Pause the game
+    }
+
+    public void ReturnToControlScene()
+    {
+        SceneManager.LoadScene("ControlScene"); // Make sure the scene name is correct
     }
 
     void RestartGame()
