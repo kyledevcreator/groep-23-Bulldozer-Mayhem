@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; // For UI TextMeshPro
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
     [SerializeField] private List<GameObject> platforms;
     [SerializeField] private float minDelay, maxDelay, spawnDelayPlatform;
     [SerializeField] private float minDelayObjectSpawn, maxDelayObjectSpawn, spawnDelay;
@@ -12,15 +13,22 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameObject> spawnedObjects = new List<GameObject>();
 
     public float objectLifetime = 5f;
-
     public Material SecondMaterial;
 
+    // Add references for the winner UI
+    public GameObject winnerPanel;
+    public TextMeshProUGUI winnerText;
+    public GameObject player1;
+    public GameObject player2;
+
+    private int playersAlive = 2;
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(StartNewRound());
         StartCoroutine(GravityDelay());
+        winnerPanel.SetActive(false); // Hide the winner panel initially
     }
 
     private IEnumerator GravityDelay()
@@ -32,7 +40,6 @@ public class GameManager : MonoBehaviour
             PlatformFall();
         }
     }
-
 
     private void PlatformFall()
     {
@@ -98,7 +105,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator DestroyAfterTime(GameObject obj, float delay)
     {
         yield return new WaitForSeconds(delay);
-        if (obj != null) 
+        if (obj != null)
         {
             Destroy(obj);
         }
@@ -107,5 +114,42 @@ public class GameManager : MonoBehaviour
     private Vector3 GetRandomPosition()
     {
         return new Vector3(Random.Range(-9, 21), 105, Random.Range(-16f, 16f));
+    }
+
+    // Call this method when a player loses a life
+    public void PlayerLost(GameObject player)
+    {
+        playersAlive--;
+        player.SetActive(false); // Deactivate the player
+
+        if (playersAlive == 1) // If one player remains
+        {
+            FindWinner(); // Identify and display the winner
+        }
+        else if (playersAlive == 0) // If no one is left, restart the game
+        {
+            RestartGame();
+        }
+    }
+
+    void FindWinner()
+    {
+        // Determine the winner by checking the remaining active player
+        if (!player1.activeSelf) // If Player 1 is deactivated, Player 2 is the winner
+        {
+            winnerText.text = "Player 2 Wins!";
+        }
+        else if (!player2.activeSelf) // If Player 2 is deactivated, Player 1 is the winner
+        {
+            winnerText.text = "Player 1 Wins!";
+        }
+
+        winnerPanel.SetActive(true); // Show the winner panel
+        Time.timeScale = 0f; // Pause the game
+    }
+
+    void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Restart the scene
     }
 }

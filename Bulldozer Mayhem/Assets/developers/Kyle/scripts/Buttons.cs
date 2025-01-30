@@ -50,6 +50,10 @@ public class Buttons : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1;
     }
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Reloads the current scene
+    }
 
     public void Quitgame()
     {
