@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b1dd5cbc0ef57459331a53c0d410e4, type: 3}
   m_Name: Player 1
   m_EditorClassIdentifier: 
-  gasSpeedBonus: 0
-  reverseSpeedBonus: 0
-  torqueSpeedBonus: 0
+  gasSpeedBonus: 1
+  reverseSpeedBonus: 2
+  torqueSpeedBonus: 9
   frontStrength: 1
   backStrength: 1
   leftStrength: 1
   rightStrength: 1
-  frontPower: 0
-  backPower: 0
-  leftPower: 0
-  rightPower: 0
-  rotationalDragBonus: 0
+  frontPower: 100
+  backPower: 100
+  leftPower: 100
+  rightPower: 100
+  rotationalDragBonus: 0.2
