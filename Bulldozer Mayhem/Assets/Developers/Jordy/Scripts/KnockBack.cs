@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Knockback : MonoBehaviour
 {
-    [SerializeField] private float force = 500.0f;
+    [SerializeField] private float force;
     public Rigidbody rb;
     public Rigidbody OpponentRb;
 
@@ -16,8 +16,8 @@ public class Knockback : MonoBehaviour
         
         if (other.gameObject.tag == "Front")
         {
-            rb.AddForce(-rb.velocity.normalized * force * 30, ForceMode.Impulse);
-            OpponentRb.AddForce(rb.velocity.normalized * force * 30, ForceMode.Impulse);
+            rb.AddForce(-rb.velocity.normalized * force * 1, ForceMode.Impulse);
+            OpponentRb.AddForce(rb.velocity.normalized * force * 1, ForceMode.Impulse);
             //StartCoroutine(DisableMovement());
 
             Debug.Log("Front hit");
@@ -26,8 +26,8 @@ public class Knockback : MonoBehaviour
 
         if (other.gameObject.tag == "Back")
         {
-            rb.AddForce(-rb.velocity.normalized * force * 15, ForceMode.Impulse);
-            OpponentRb.AddForce(rb.velocity.normalized * force * 90, ForceMode.Impulse);
+            rb.AddForce(-rb.velocity.normalized * force * 1, ForceMode.Impulse);
+            OpponentRb.AddForce(rb.velocity.normalized * force * 3, ForceMode.Impulse);
 
             //StartCoroutine(DisableMovement());
 
@@ -36,8 +36,8 @@ public class Knockback : MonoBehaviour
 
         if (other.gameObject.tag == "Left")
         {
-            OpponentRb.AddForce(rb.velocity.normalized * force * 70, ForceMode.Impulse);
-            rb.AddForce(-rb.velocity.normalized * force * 30, ForceMode.Impulse);
+            OpponentRb.AddForce(rb.velocity.normalized * force * 2, ForceMode.Impulse);
+            rb.AddForce(-rb.velocity.normalized * force * 1, ForceMode.Impulse);
 
             //StartCoroutine(DisableMovement());
 
@@ -46,8 +46,8 @@ public class Knockback : MonoBehaviour
 
         if (other.gameObject.tag == "Right")
         {
-            OpponentRb.AddForce(rb.velocity.normalized * force * 70, ForceMode.Impulse);
-            rb.AddForce(-rb.velocity.normalized * force * 30, ForceMode.Impulse);
+            OpponentRb.AddForce(rb.velocity.normalized * force * 2, ForceMode.Impulse);
+            rb.AddForce(-rb.velocity.normalized * force * 1, ForceMode.Impulse);
 
             //StartCoroutine(DisableMovement());
 
