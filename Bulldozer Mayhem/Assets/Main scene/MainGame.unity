@@ -626,11 +626,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 244120088}
     m_Modifications:
-    - target: {fileID: 61353163951606009, guid: 2952515df85286b4598d658b2850265f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 96636267827755705, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
       propertyPath: player
@@ -646,20 +641,10 @@ PrefabInstance:
       propertyPath: rotationSpeed
       value: 600
       objectReference: {fileID: 0}
-    - target: {fileID: 588541152011348268, guid: 2952515df85286b4598d658b2850265f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 2836233484944929291, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
       propertyPath: m_Name
       value: Player2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2836233484944929291, guid: 2952515df85286b4598d658b2850265f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2836233484944929291, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
@@ -726,16 +711,6 @@ PrefabInstance:
       propertyPath: OpponentRb
       value: 
       objectReference: {fileID: 1477460019}
-    - target: {fileID: 3440125090137253874, guid: 2952515df85286b4598d658b2850265f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3797927571706114923, guid: 2952515df85286b4598d658b2850265f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 4651817515453161153, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
       propertyPath: force
@@ -766,16 +741,6 @@ PrefabInstance:
       propertyPath: m_Interpolate
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6349300693520851601, guid: 2952515df85286b4598d658b2850265f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7969150061236772587, guid: 2952515df85286b4598d658b2850265f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 8301423727641331456, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
       propertyPath: force
@@ -796,8 +761,7 @@ PrefabInstance:
       propertyPath: OpponentRb
       value: 
       objectReference: {fileID: 1477460019}
-    m_RemovedComponents:
-    - {fileID: 2736093019071890459, guid: 2952515df85286b4598d658b2850265f, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3711,20 +3675,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 244120088}
     m_Modifications:
-    - target: {fileID: 61353163951606009, guid: 2952515df85286b4598d658b2850265f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 96636267827755705, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
       propertyPath: rotationSpeed
       value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 588541152011348268, guid: 2952515df85286b4598d658b2850265f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2736093019071890459, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
@@ -3735,11 +3689,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2836233484944929291, guid: 2952515df85286b4598d658b2850265f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3177153194455574705, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
@@ -3796,30 +3745,25 @@ PrefabInstance:
       propertyPath: OpponentRb
       value: 
       objectReference: {fileID: 1479292920}
-    - target: {fileID: 3440125090137253874, guid: 2952515df85286b4598d658b2850265f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3797927571706114923, guid: 2952515df85286b4598d658b2850265f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 4651817515453161153, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
       propertyPath: OpponentRb
       value: 
       objectReference: {fileID: 1479292920}
-    - target: {fileID: 6349300693520851601, guid: 2952515df85286b4598d658b2850265f,
+    - target: {fileID: 5255462782022791535, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
-      propertyPath: m_Layer
-      value: 7
+      propertyPath: m_Drag
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7969150061236772587, guid: 2952515df85286b4598d658b2850265f,
+    - target: {fileID: 5255462782022791535, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
-      propertyPath: m_Layer
-      value: 9
+      propertyPath: m_Mass
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255462782022791535, guid: 2952515df85286b4598d658b2850265f,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8301423727641331456, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
