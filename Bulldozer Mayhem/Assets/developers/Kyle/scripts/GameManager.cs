@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
 
     private int playersAlive = 2;
 
+    private List<GameObject> availablePlatforms = new List<GameObject>();
+
     void Awake()
     {
         if (Instance == null)
@@ -48,6 +50,11 @@ public class GameManager : MonoBehaviour
         {
             controlSceneButton.SetActive(false);
         }
+
+        ResetAvailablePlatforms(); // Ensures platform list is ready before spawning
+
+        player1.GetComponent<PlayerLives>().SpawnPlayerAtStart();
+        player2.GetComponent<PlayerLives>().SpawnPlayerAtStart();
     }
 
     private IEnumerator GravityDelay()
@@ -70,7 +77,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            PlatformFall(); 
+            PlatformFall();
         }
     }
 
@@ -168,9 +175,26 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    //  Used by PlayerLives.cs to find valid respawn platforms
+    // Used by PlayerLives.cs to find valid respawn platforms
     public List<GameObject> GetActivePlatforms()
     {
         return platforms.FindAll(p => p != null && p.activeInHierarchy);
+    }
+
+    //  New methods for unique spawn selection
+    public void ResetAvailablePlatforms()
+    {
+        availablePlatforms = GetActivePlatforms();
+    }
+
+    public GameObject GetUniqueRandomPlatform()
+    {
+        if (availablePlatforms.Count == 0)
+            return null;
+
+        int index = Random.Range(0, availablePlatforms.Count);
+        GameObject platform = availablePlatforms[index];
+        availablePlatforms.RemoveAt(index);
+        return platform;
     }
 }

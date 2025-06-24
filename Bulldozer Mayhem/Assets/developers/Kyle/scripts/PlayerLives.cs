@@ -27,7 +27,11 @@ public class PlayerLives : MonoBehaviour
             playerName = PlayerPrefs.GetString("Player2Name", "Player 2");
 
         UpdateLivesUI();
-        SpawnOnRandomPlatform(); // Start on a random platform
+        // Don't call SpawnOnRandomPlatform here anymore
+    }
+    public void SpawnPlayerAtStart()
+    {
+        SpawnOnRandomPlatform(); // uses unique spawn list
     }
 
     private void OnTriggerEnter(Collider other)
@@ -58,20 +62,22 @@ public class PlayerLives : MonoBehaviour
 
     void Respawn()
     {
-        SpawnOnRandomPlatform();
+        SpawnOnRandomPlatform(); // You can decide whether to reuse unique spawn or general active platform
     }
 
     private void SpawnOnRandomPlatform()
     {
-        List<GameObject> platforms = GameManager.Instance.GetActivePlatforms();
+        GameObject platform = GameManager.Instance.GetUniqueRandomPlatform();
 
-        if (platforms.Count > 0)
+        if (platform != null)
         {
-            GameObject platform = platforms[Random.Range(0, platforms.Count)];
-            transform.position = platform.transform.position + new Vector3(0, 3, 0);
+            Vector3 spawnPosition = platform.transform.position + new Vector3(0, 3, 0);
+            Debug.Log($"Spawning player on: {platform.name} at {spawnPosition}");
+            transform.position = spawnPosition;
         }
         else
         {
+            Debug.LogWarning("No platform available for spawn. Using Vector3.zero.");
             transform.position = Vector3.zero;
         }
 
@@ -82,8 +88,9 @@ public class PlayerLives : MonoBehaviour
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
             rb.rotation = Quaternion.identity;
-            rb.Sleep();
-            rb.WakeUp();
+            // Comment this out temporarily if there's a problem
+            // rb.Sleep();
+            // rb.WakeUp();
         }
 
         gameObject.SetActive(true);
@@ -93,7 +100,7 @@ public class PlayerLives : MonoBehaviour
     private IEnumerator InvincibilityPhase()
     {
         isInvincible = true;
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Player"), true);
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("ParentLayer"), LayerMask.NameToLayer("ParentLayer"), true);
 
         float blinkDuration = 5f;
         float blinkInterval = 0.25f;
@@ -115,7 +122,7 @@ public class PlayerLives : MonoBehaviour
             playerRenderer.enabled = true;
         }
 
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Player"), false);
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("ParentLayer"), LayerMask.NameToLayer("ParentLayer"), false);
         isInvincible = false;
     }
 

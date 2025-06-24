@@ -781,7 +781,8 @@ PrefabInstance:
       propertyPath: OpponentRb
       value: 
       objectReference: {fileID: 1477460019}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2736093019071890459, guid: 2952515df85286b4598d658b2850265f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1960,12 +1961,12 @@ PrefabInstance:
     - target: {fileID: 490517346237677443, guid: 301af3d1330643a4ba9379dc12f111c2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.833547
+      value: -5.42
       objectReference: {fileID: 0}
     - target: {fileID: 490517346237677443, guid: 301af3d1330643a4ba9379dc12f111c2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 62.83
+      value: 62.52
       objectReference: {fileID: 0}
     - target: {fileID: 490517346237677443, guid: 301af3d1330643a4ba9379dc12f111c2,
         type: 3}
@@ -4197,6 +4198,7 @@ MonoBehaviour:
   - {fileID: 764183281}
   - {fileID: 764183280}
   - {fileID: 764183279}
+  - {fileID: 764183283}
   minDelay: 1
   maxDelay: 8
   spawnDelayPlatform: 3
