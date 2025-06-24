@@ -17,9 +17,9 @@ public class Knockback : MonoBehaviour
         
         if (other.gameObject.tag == "Front")
         {
-            rb.AddForce(-transform.forward * force * 25, ForceMode.Impulse);
+            rb.AddForce(-rb.transform.forward * force * 25, ForceMode.Impulse);
 
-            StartCoroutine(DisableMovement());
+            //StartCoroutine(DisableMovement());
 
             Debug.Log("Front hit");
         }
@@ -27,34 +27,33 @@ public class Knockback : MonoBehaviour
 
         if (other.gameObject.tag == "Back")
         {
-            OpponentRb.AddForce(transform.forward * force * 90, ForceMode.Impulse);
-            rb.AddForce(-transform.forward * force * 15, ForceMode.Impulse);
+            OpponentRb.AddForce(rb.transform.forward * force * 90, ForceMode.Impulse);
+            rb.AddForce(-rb.transform.forward * force * 15, ForceMode.Impulse);
 
-            StartCoroutine(DisableMovement());
+            //StartCoroutine(DisableMovement());
 
             Debug.Log("Back hit");
         }
 
         if (other.gameObject.tag == "Left")
         {
-            OpponentRb.AddForce(transform.forward * force * 20, ForceMode.Impulse);
-            rb.AddForce(-transform.forward * force * 15, ForceMode.Impulse);
+            OpponentRb.AddForce(rb.transform.forward * force * 20, ForceMode.Impulse);
+            rb.AddForce(-rb.transform.forward * force * 15, ForceMode.Impulse);
 
-            StartCoroutine(DisableMovement());
+            //StartCoroutine(DisableMovement());
 
             Debug.Log("Left hit");
         }
 
         if (other.gameObject.tag == "Right")
         {
-            OpponentRb.AddForce(transform.forward * force * 20, ForceMode.Impulse);
-            rb.AddForce(-transform.forward * force * 15, ForceMode.Impulse);
+            OpponentRb.AddForce(rb.transform.forward * force * 20, ForceMode.Impulse);
+            rb.AddForce(-rb.transform.forward * force * 15, ForceMode.Impulse);
 
-            StartCoroutine(DisableMovement());
+            //StartCoroutine(DisableMovement());
 
             Debug.Log("Right hit");
         }
-
     }
 
 

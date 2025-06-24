@@ -5,6 +5,7 @@ public class MovementPlayerOne : MonoBehaviour
     [SerializeField] private float movementSpeed = 10f;
     [SerializeField] private float rotationSpeed;
     private bool hasGrip;
+    private Rigidbody rb;
 
     public enum PlayerEnum
     {
@@ -12,6 +13,11 @@ public class MovementPlayerOne : MonoBehaviour
         Player2,
 
 
+    }
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
     }
 
     public PlayerEnum player;
@@ -51,7 +57,8 @@ public class MovementPlayerOne : MonoBehaviour
             if (Input.GetKey(KeyCode.W))
             {
 
-                transform.Translate(0, 0, 1 * Time.deltaTime * movementSpeed);
+                //transform.Translate(0, 0, 1 * Time.deltaTime * movementSpeed);
+                rb.AddForce(transform.forward * movementSpeed);
 
             }
 
@@ -59,8 +66,8 @@ public class MovementPlayerOne : MonoBehaviour
             if (Input.GetKey(KeyCode.D))
             {
 
-                transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
-
+                //transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
+                rb.AddTorque(Vector3.up * rotationSpeed, ForceMode.Force);
 
             }
 
@@ -68,7 +75,8 @@ public class MovementPlayerOne : MonoBehaviour
             if (Input.GetKey(KeyCode.A))
             {
 
-                transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
+                //transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
+                rb.AddTorque(-Vector3.up * rotationSpeed, ForceMode.Force);
 
             }
 
@@ -76,17 +84,18 @@ public class MovementPlayerOne : MonoBehaviour
             if (Input.GetKey(KeyCode.S))
             {
 
-                transform.Translate(0, 0, -1 * Time.deltaTime * movementSpeed);
+                //transform.Translate(0, 0, -1 * Time.deltaTime * movementSpeed);
+                rb.AddForce(-transform.forward * movementSpeed);
 
             }
         }
         else if (hasGrip && player == PlayerEnum.Player2)
         {
-            //Move forward
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                //   transform.Translate(transform.forward * Time.deltaTime * movementSpeed, Space.World);
-                transform.Translate(0, 0, 1 * Time.deltaTime * movementSpeed);
+
+                //transform.Translate(0, 0, 1 * Time.deltaTime * movementSpeed);
+                rb.AddForce(transform.forward * movementSpeed);
 
             }
 
@@ -94,8 +103,8 @@ public class MovementPlayerOne : MonoBehaviour
             if (Input.GetKey(KeyCode.RightArrow))
             {
 
-                transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
-
+                //transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
+                rb.AddTorque(Vector3.up * rotationSpeed, ForceMode.Force);
 
             }
 
@@ -103,7 +112,8 @@ public class MovementPlayerOne : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftArrow))
             {
 
-                transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
+                //transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
+                rb.AddTorque(-Vector3.up * rotationSpeed, ForceMode.Force);
 
             }
 
@@ -111,10 +121,10 @@ public class MovementPlayerOne : MonoBehaviour
             if (Input.GetKey(KeyCode.DownArrow))
             {
 
-                transform.Translate(0, 0, -1 * Time.deltaTime * movementSpeed);
+                //transform.Translate(0, 0, -1 * Time.deltaTime * movementSpeed);
+                rb.AddForce(-transform.forward * movementSpeed);
 
             }
-
         }
        
         //Move forward

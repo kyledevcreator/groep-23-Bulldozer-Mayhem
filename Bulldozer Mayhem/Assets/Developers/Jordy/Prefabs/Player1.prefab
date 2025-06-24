@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c084e790fd1684d8c49b7443dbe7c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 5
+  force: 7
   rb: {fileID: 5255462782022791535}
   OpponentRb: {fileID: 0}
   MovementScriptPlayer: {fileID: 96636267827755705}
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c084e790fd1684d8c49b7443dbe7c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 25
+  force: 20
   rb: {fileID: 5255462782022791535}
   OpponentRb: {fileID: 0}
   MovementScriptPlayer: {fileID: 96636267827755705}
@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c084e790fd1684d8c49b7443dbe7c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 50
+  force: 25
   rb: {fileID: 5255462782022791535}
   OpponentRb: {fileID: 0}
   MovementScriptPlayer: {fileID: 96636267827755705}
@@ -506,7 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c084e790fd1684d8c49b7443dbe7c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 5
+  force: 7
   rb: {fileID: 5255462782022791535}
   OpponentRb: {fileID: 0}
   MovementScriptPlayer: {fileID: 96636267827755705}
@@ -661,17 +661,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4ac0da663fc95484e975e0528e767abf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.4127
+      value: -10.03
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ac0da663fc95484e975e0528e767abf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 66.22
+      value: 63.54
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ac0da663fc95484e975e0528e767abf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.232001
+      value: -11.58
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ac0da663fc95484e975e0528e767abf,
         type: 3}
@@ -721,7 +721,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4ac0da663fc95484e975e0528e767abf,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -771,6 +771,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3907621054099481572}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4ac0da663fc95484e975e0528e767abf,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2736093019071890459}
   m_SourcePrefab: {fileID: 100100000, guid: 4ac0da663fc95484e975e0528e767abf, type: 3}
 --- !u!1 &2836233484944929291 stripped
 GameObject:
@@ -786,9 +790,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2836233484944929291}
   serializedVersion: 4
-  m_Mass: 50
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 5
+  m_Drag: 1
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -802,7 +806,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &3073782365983111423
@@ -838,8 +842,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 205ffe2fa569dd7459f659411d2ef1ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 15
-  rotationSpeed: 130
+  movementSpeed: 300
+  rotationSpeed: 600
   player: 0
 --- !u!82 &4325121393293055249
 AudioSource:
@@ -950,6 +954,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrackSound: {fileID: 4325121393293055249}
+--- !u!114 &2736093019071890459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2836233484944929291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5331540956aa8164bbc64ab151bb00b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 3
+  livesText: {fileID: 0}
 --- !u!4 &3177153194455574705 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4ac0da663fc95484e975e0528e767abf,
