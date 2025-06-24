@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; // For UI TextMeshPro
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+
     [SerializeField] private List<GameObject> platforms;
     [SerializeField] private float minDelay, maxDelay, spawnDelayPlatform;
     [SerializeField] private float minDelayObjectSpawn, maxDelayObjectSpawn, spawnDelay;
@@ -15,26 +17,36 @@ public class GameManager : MonoBehaviour
     public float objectLifetime = 5f;
     public Material SecondMaterial;
 
-    // Add references for the winner UI
     public GameObject winnerPanel;
     public TextMeshProUGUI winnerText;
     public GameObject player1;
     public GameObject player2;
 
-    public GameObject controlSceneButton; // Assign in Inspector
+    public GameObject controlSceneButton;
 
     private int playersAlive = 2;
 
-    // Start is called before the first frame update
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         StartCoroutine(StartNewRound());
         StartCoroutine(GravityDelay());
-        winnerPanel.SetActive(false); // Hide the winner panel initially
+        winnerPanel.SetActive(false);
 
         if (controlSceneButton != null)
         {
-            controlSceneButton.SetActive(false); // Hide button at start
+            controlSceneButton.SetActive(false);
         }
     }
 
@@ -51,17 +63,14 @@ public class GameManager : MonoBehaviour
     private void PlatformFall()
     {
         int i = Random.Range(0, platforms.Count);
-        Debug.Log(i);
 
-        if (platforms[i].activeInHierarchy)
+        if (platforms[i] != null && platforms[i].activeInHierarchy)
         {
             StartCoroutine(ChangeColorAndFall(platforms[i]));
         }
-        else if (platforms[i] == null)
+        else
         {
-            // Retry with a different platform if the selected one is null
-            i = Random.Range(0, platforms.Count);
-            PlatformFall();
+            PlatformFall(); 
         }
     }
 
@@ -69,17 +78,14 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(spawnDelayPlatform);
 
-        // Change the material color
         Renderer renderer = platform.GetComponent<Renderer>();
         if (renderer != null && SecondMaterial != null)
         {
             renderer.material = SecondMaterial;
         }
 
-        // Wait for a short time before making the platform fall
-        yield return new WaitForSeconds(3.0f); // Adjust the delay as needed
+        yield return new WaitForSeconds(3.0f);
 
-        // Enable gravity and make it fall
         Rigidbody rigidBody = platform.GetComponent<Rigidbody>();
         Collider collider = platform.GetComponent<Collider>();
         if (rigidBody != null)
@@ -90,7 +96,6 @@ public class GameManager : MonoBehaviour
             rigidBody.drag = 0.2f;
         }
 
-        // Destroy the platform after 5 seconds and remove it from the list
         Destroy(platform, 5);
         platforms.Remove(platform);
     }
@@ -99,7 +104,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(spawnDelay);
 
-        for (int i = 0; i < 23; i++)
+        for (int i = 0; i < spawnedObjects.Count; i++)
         {
             float randomTime = Random.Range(minDelayObjectSpawn, maxDelayObjectSpawn);
             GameObject newObject = Instantiate(spawnedObjects[i], GetRandomPosition(), Quaternion.identity);
@@ -123,17 +128,16 @@ public class GameManager : MonoBehaviour
         return new Vector3(Random.Range(-9, 21), 105, Random.Range(-16f, 16f));
     }
 
-    // Call this method when a player loses a life
     public void PlayerLost(GameObject player)
     {
         playersAlive--;
-        player.SetActive(false); // Deactivate the player
+        player.SetActive(false);
 
-        if (playersAlive == 1) // If one player remains
+        if (playersAlive == 1)
         {
-            FindWinner(); // Identify and display the winner
+            FindWinner();
         }
-        else if (playersAlive == 0) // If no one is left, restart the game
+        else if (playersAlive == 0)
         {
             RestartGame();
         }
@@ -141,27 +145,32 @@ public class GameManager : MonoBehaviour
 
     void FindWinner()
     {
-        // Determine the winner by checking the remaining active player
-        if (!player1.activeSelf) // If Player 1 is deactivated, Player 2 is the winner
+        if (!player1.activeSelf)
         {
             winnerText.text = "Player 2 Wins!";
         }
-        else if (!player2.activeSelf) // If Player 2 is deactivated, Player 1 is the winner
+        else if (!player2.activeSelf)
         {
             winnerText.text = "Player 1 Wins!";
         }
 
-        winnerPanel.SetActive(true); // Show the winner panel
-        Time.timeScale = 0f; // Pause the game
+        winnerPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void ReturnToControlScene()
     {
-        SceneManager.LoadScene("ControlScene"); // Make sure the scene name is correct
+        SceneManager.LoadScene("ControlScene");
     }
 
     void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Restart the scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    //  Used by PlayerLives.cs to find valid respawn platforms
+    public List<GameObject> GetActivePlatforms()
+    {
+        return platforms.FindAll(p => p != null && p.activeInHierarchy);
     }
 }
