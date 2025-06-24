@@ -95,8 +95,8 @@ public class PlayerLives : MonoBehaviour
         isInvincible = true;
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Player"), true);
 
-        float blinkDuration = 5f;
-        float blinkInterval = 0.25f;
+        float blinkDuration = 2f;
+        float blinkInterval = 0.1f;
         float timer = 0f;
 
         while (timer < blinkDuration)
