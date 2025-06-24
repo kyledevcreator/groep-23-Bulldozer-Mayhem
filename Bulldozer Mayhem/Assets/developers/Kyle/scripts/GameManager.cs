@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float minDelay, maxDelay, spawnDelayPlatform;
     [SerializeField] private float minDelayObjectSpawn, maxDelayObjectSpawn, spawnDelay;
 
-    [SerializeField] private List<GameObject> spawnedObjects = new List<GameObject>();
+    [SerializeField] private List<GameObject> spawnObjectPrefabs = new();
+    private List<GameObject> spawnedObjects = new();
 
     public float objectLifetime = 5f;
     public Material SecondMaterial;
@@ -111,12 +112,15 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(spawnDelay);
 
-        for (int i = 0; i < spawnedObjects.Count; i++)
+        foreach (GameObject obj in spawnedObjects)
+        {
+            Destroy(obj);
+        }
+        while (true)
         {
             float randomTime = Random.Range(minDelayObjectSpawn, maxDelayObjectSpawn);
-            GameObject newObject = Instantiate(spawnedObjects[i], GetRandomPosition(), Quaternion.identity);
+            GameObject newObject = Instantiate(spawnObjectPrefabs[Random.Range(0, spawnedObjects.Count)], GetRandomPosition(), Quaternion.identity);
             StartCoroutine(DestroyAfterTime(newObject, objectLifetime));
-
             yield return new WaitForSeconds(randomTime);
         }
     }
