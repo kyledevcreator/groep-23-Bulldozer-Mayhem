@@ -3675,11 +3675,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 244120088}
     m_Modifications:
-    - target: {fileID: 96636267827755705, guid: 2952515df85286b4598d658b2850265f,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 600
-      objectReference: {fileID: 0}
     - target: {fileID: 2736093019071890459, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
       propertyPath: livesText
@@ -3750,21 +3745,6 @@ PrefabInstance:
       propertyPath: OpponentRb
       value: 
       objectReference: {fileID: 1479292920}
-    - target: {fileID: 5255462782022791535, guid: 2952515df85286b4598d658b2850265f,
-        type: 3}
-      propertyPath: m_Drag
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255462782022791535, guid: 2952515df85286b4598d658b2850265f,
-        type: 3}
-      propertyPath: m_Mass
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255462782022791535, guid: 2952515df85286b4598d658b2850265f,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8301423727641331456, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
       propertyPath: OpponentRb
