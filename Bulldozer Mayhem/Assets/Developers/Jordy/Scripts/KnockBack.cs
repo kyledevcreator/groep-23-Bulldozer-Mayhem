@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Knockback : MonoBehaviour
@@ -17,8 +16,8 @@ public class Knockback : MonoBehaviour
         
         if (other.gameObject.tag == "Front")
         {
-            rb.AddForce(-rb.velocity.normalized * force * 15, ForceMode.Impulse);
-            OpponentRb.AddForce(rb.velocity.normalized * force * 15, ForceMode.Impulse);
+            rb.AddForce(-rb.velocity.normalized * force * 30, ForceMode.Impulse);
+            OpponentRb.AddForce(rb.velocity.normalized * force * 30, ForceMode.Impulse);
             //StartCoroutine(DisableMovement());
 
             Debug.Log("Front hit");
@@ -27,8 +26,8 @@ public class Knockback : MonoBehaviour
 
         if (other.gameObject.tag == "Back")
         {
-            OpponentRb.AddForce(rb.velocity.normalized * force * 90, ForceMode.Impulse);
             rb.AddForce(-rb.velocity.normalized * force * 15, ForceMode.Impulse);
+            OpponentRb.AddForce(rb.velocity.normalized * force * 90, ForceMode.Impulse);
 
             //StartCoroutine(DisableMovement());
 
@@ -38,7 +37,7 @@ public class Knockback : MonoBehaviour
         if (other.gameObject.tag == "Left")
         {
             OpponentRb.AddForce(rb.velocity.normalized * force * 70, ForceMode.Impulse);
-            rb.AddForce(-rb.velocity.normalized * force * 15, ForceMode.Impulse);
+            rb.AddForce(-rb.velocity.normalized * force * 30, ForceMode.Impulse);
 
             //StartCoroutine(DisableMovement());
 
@@ -48,7 +47,7 @@ public class Knockback : MonoBehaviour
         if (other.gameObject.tag == "Right")
         {
             OpponentRb.AddForce(rb.velocity.normalized * force * 70, ForceMode.Impulse);
-            rb.AddForce(-rb.velocity.normalized * force * 15, ForceMode.Impulse);
+            rb.AddForce(-rb.velocity.normalized * force * 30, ForceMode.Impulse);
 
             //StartCoroutine(DisableMovement());
 
