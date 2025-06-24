@@ -6,21 +6,25 @@ public class MovementPlayerOne : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     private bool hasGrip;
     private Rigidbody rb;
+    [SerializeField] private PlayerStatistic p1, p2;
+    private PlayerStatistic activePlayer;
+    public PlayerEnum player;
 
     public enum PlayerEnum
     {
         Player1,
         Player2,
-
-
     }
 
     private void Start()
     {
+        if (player == PlayerEnum.Player1)
+            activePlayer = p1;
+        else
+            activePlayer = p2;
         rb = GetComponent<Rigidbody>();
     }
 
-    public PlayerEnum player;
 
     // Start is called before the first frame update
 
@@ -29,7 +33,6 @@ public class MovementPlayerOne : MonoBehaviour
          if (collision.gameObject.layer == 3)
          {
              hasGrip = true;
-            
          }
     }
 
@@ -58,7 +61,7 @@ public class MovementPlayerOne : MonoBehaviour
             {
 
                 //transform.Translate(0, 0, 1 * Time.deltaTime * movementSpeed);
-                rb.AddForce(transform.forward * movementSpeed);
+                rb.AddForce(transform.forward * (movementSpeed + activePlayer.gasSpeedBonus));
 
             }
 
@@ -67,7 +70,7 @@ public class MovementPlayerOne : MonoBehaviour
             {
 
                 //transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
-                rb.AddTorque(Vector3.up * rotationSpeed, ForceMode.Force);
+                rb.AddTorque(Vector3.up * (rotationSpeed + activePlayer.torqueSpeedBonus), ForceMode.Force);
 
             }
 
@@ -76,7 +79,7 @@ public class MovementPlayerOne : MonoBehaviour
             {
 
                 //transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
-                rb.AddTorque(-Vector3.up * rotationSpeed, ForceMode.Force);
+                rb.AddTorque(-Vector3.up * (rotationSpeed + activePlayer.torqueSpeedBonus), ForceMode.Force);
 
             }
 
@@ -85,7 +88,7 @@ public class MovementPlayerOne : MonoBehaviour
             {
 
                 //transform.Translate(0, 0, -1 * Time.deltaTime * movementSpeed);
-                rb.AddForce(-transform.forward * movementSpeed);
+                rb.AddForce(-transform.forward * (movementSpeed + activePlayer.reverseSpeedBonus));
 
             }
         }

@@ -790,7 +790,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2836233484944929291}
   serializedVersion: 4
-  m_Mass: 50
+  m_Mass: 5
   m_Drag: 1
   m_AngularDrag: 1.5
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -842,8 +842,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 205ffe2fa569dd7459f659411d2ef1ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1000
-  rotationSpeed: 1500
+  movementSpeed: 200
+  rotationSpeed: 300
+  p1: {fileID: 11400000, guid: b4a3422c74c85bb4c84a98b71232b878, type: 2}
+  p2: {fileID: 11400000, guid: 201cf59d34d8e864890967cad44d3eb1, type: 2}
   player: 0
 --- !u!82 &4325121393293055249
 AudioSource:

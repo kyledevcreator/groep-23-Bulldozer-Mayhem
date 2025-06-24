@@ -1,14 +1,50 @@
 using System.Collections;
 using UnityEngine;
+using static MovementPlayerOne;
 
 public class Knockback : MonoBehaviour
 {
     [SerializeField] private float force;
+    private float addedForce;
     public Rigidbody rb;
     public Rigidbody OpponentRb;
 
     public MonoBehaviour MovementScriptPlayer;
     public float DisableTime = 1.2f;
+    [SerializeField] private PlayerStatistic p1, p2;
+    private PlayerStatistic me, opponent;
+    public PlayerEnum player;
+    private float powerValue;
+    //0 = fwd, 1 = left, 2 = right, 3 = back
+
+    private void Start()
+    {
+        if (player == PlayerEnum.Player1)
+        {
+            me = p1;
+            opponent = p2;
+        }
+        else
+        {
+            me = p2;
+            opponent = p1;
+        }
+        if (gameObject.CompareTag("Front"))
+            powerValue = me.frontPower;
+        else if (gameObject.CompareTag("Left"))
+            powerValue = me.leftPower;
+        else if (gameObject.CompareTag("Right"))
+            powerValue = me.rightPower;
+        else if (gameObject.CompareTag("Back"))
+            powerValue = me.leftPower;
+        else
+            Debug.LogError(gameObject.name + "does not have a valid TAG (" + gameObject.tag + "), Please change TAG to valid value.");
+    }
+
+    private void Update()
+    {
+        addedForce = force + powerValue;
+    }
 
 
     private void OnTriggerEnter(Collider other)
@@ -16,42 +52,27 @@ public class Knockback : MonoBehaviour
         
         if (other.gameObject.tag == "Front")
         {
-            rb.AddForce(-rb.velocity.normalized * force * 1, ForceMode.Impulse);
-            OpponentRb.AddForce(rb.velocity.normalized * force * 1, ForceMode.Impulse);
-            //StartCoroutine(DisableMovement());
-
-            Debug.Log("Front hit");
+            rb.AddForce(-rb.velocity.normalized * force * (1 / me.frontStrength), ForceMode.Impulse);
+            OpponentRb.AddForce(rb.velocity.normalized * addedForce * (1 / opponent.frontStrength), ForceMode.Impulse);
         }
 
 
         if (other.gameObject.tag == "Back")
         {
-            rb.AddForce(-rb.velocity.normalized * force * 1, ForceMode.Impulse);
-            OpponentRb.AddForce(rb.velocity.normalized * force * 3, ForceMode.Impulse);
-
-            //StartCoroutine(DisableMovement());
-
-            Debug.Log("Back hit");
+            rb.AddForce(-rb.velocity.normalized * force * (1 / me.backStrength), ForceMode.Impulse);
+            OpponentRb.AddForce(rb.velocity.normalized * addedForce * (3 / opponent.backStrength), ForceMode.Impulse);
         }
 
         if (other.gameObject.tag == "Left")
         {
-            OpponentRb.AddForce(rb.velocity.normalized * force * 2, ForceMode.Impulse);
-            rb.AddForce(-rb.velocity.normalized * force * 1, ForceMode.Impulse);
-
-            //StartCoroutine(DisableMovement());
-
-            Debug.Log("Left hit");
+            rb.AddForce(-rb.velocity.normalized * force * (1 / me.leftStrength), ForceMode.Impulse);
+            OpponentRb.AddForce(rb.velocity.normalized * addedForce * (2 / opponent.leftStrength), ForceMode.Impulse);
         }
 
         if (other.gameObject.tag == "Right")
         {
-            OpponentRb.AddForce(rb.velocity.normalized * force * 2, ForceMode.Impulse);
-            rb.AddForce(-rb.velocity.normalized * force * 1, ForceMode.Impulse);
-
-            //StartCoroutine(DisableMovement());
-
-            Debug.Log("Right hit");
+            rb.AddForce(-rb.velocity.normalized * force * (1 / me.rightStrength), ForceMode.Impulse);
+            OpponentRb.AddForce(rb.velocity.normalized * addedForce * (2 / opponent.rightStrength), ForceMode.Impulse);
         }
     }
 
