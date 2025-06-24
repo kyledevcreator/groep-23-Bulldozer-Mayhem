@@ -50,7 +50,7 @@ public class MovementPlayerOne : MonoBehaviour
         Debug.Log("Collision ended");
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (hasGrip && player == PlayerEnum.Player1)
         {
