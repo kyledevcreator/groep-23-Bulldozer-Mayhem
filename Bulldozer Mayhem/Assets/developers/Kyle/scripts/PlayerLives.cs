@@ -27,12 +27,12 @@ public class PlayerLives : MonoBehaviour
             playerName = PlayerPrefs.GetString("Player2Name", "Player 2");
 
         UpdateLivesUI();
-        SpawnOnRandomPlatform(); 
+        SpawnOnRandomPlatform(); // Start on a random platform
     }
 
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        if (transform.position.y < -2)
+        if (other.CompareTag("DeathBoundary") && !isInvincible)
         {
             LoseLife();
         }
@@ -93,7 +93,7 @@ public class PlayerLives : MonoBehaviour
     private IEnumerator InvincibilityPhase()
     {
         isInvincible = true;
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("ParentLayer"), LayerMask.NameToLayer("ParentLayer"), true);
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Player"), true);
 
         float blinkDuration = 2f;
         float blinkInterval = 0.1f;
@@ -115,7 +115,7 @@ public class PlayerLives : MonoBehaviour
             playerRenderer.enabled = true;
         }
 
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("ParentLayer"), LayerMask.NameToLayer("ParentLayers"), false);
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Player"), false);
         isInvincible = false;
     }
 
