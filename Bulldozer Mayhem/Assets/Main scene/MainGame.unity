@@ -3743,6 +3743,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 244120088}
     m_Modifications:
+    - target: {fileID: 96636267827755705, guid: 2952515df85286b4598d658b2850265f,
+        type: 3}
+      propertyPath: roofFixForce
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 96636267827755705, guid: 2952515df85286b4598d658b2850265f,
+        type: 3}
+      propertyPath: roofFixTorque
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 2235067067077880832, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
       propertyPath: m_Interpolate
@@ -4305,7 +4315,6 @@ MonoBehaviour:
   - {fileID: 1098281043314417963, guid: fae154d862492be469972f05d4f0b605, type: 3}
   - {fileID: 9128616869783253935, guid: 5ea8ea27bff185d4db793bbc00a1c946, type: 3}
   - {fileID: 3474252365170653387, guid: 91052ec4fcc1ce641b263a71906facb7, type: 3}
-  spawnedObjects: []
   objectLifetime: 50
   SecondMaterial: {fileID: 2100000, guid: 85dca4c08ce8c9941af2385f11a7c41a, type: 2}
   winnerPanel: {fileID: 1040979104}

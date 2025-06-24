@@ -100,6 +100,9 @@ MonoBehaviour:
   OpponentRb: {fileID: 0}
   MovementScriptPlayer: {fileID: 96636267827755705}
   DisableTime: 0.5
+  p1: {fileID: 0}
+  p2: {fileID: 0}
+  player: 0
 --- !u!114 &2252852456493474807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +190,9 @@ MonoBehaviour:
   OpponentRb: {fileID: 0}
   MovementScriptPlayer: {fileID: 96636267827755705}
   DisableTime: 0.5
+  p1: {fileID: 0}
+  p2: {fileID: 0}
+  player: 0
 --- !u!54 &2235067067077880832
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -367,6 +373,9 @@ MonoBehaviour:
   OpponentRb: {fileID: 0}
   MovementScriptPlayer: {fileID: 96636267827755705}
   DisableTime: 0.5
+  p1: {fileID: 0}
+  p2: {fileID: 0}
+  player: 0
 --- !u!114 &988726430768942029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,6 +520,9 @@ MonoBehaviour:
   OpponentRb: {fileID: 0}
   MovementScriptPlayer: {fileID: 96636267827755705}
   DisableTime: 0.5
+  p1: {fileID: 0}
+  p2: {fileID: 0}
+  player: 0
 --- !u!114 &5229578156119212252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -847,6 +859,11 @@ MonoBehaviour:
   p1: {fileID: 11400000, guid: b4a3422c74c85bb4c84a98b71232b878, type: 2}
   p2: {fileID: 11400000, guid: 201cf59d34d8e864890967cad44d3eb1, type: 2}
   player: 0
+  platform:
+    serializedVersion: 2
+    m_Bits: 8
+  roofFixTorque: 100
+  roofFixForce: 100
 --- !u!82 &4325121393293055249
 AudioSource:
   m_ObjectHideFlags: 0

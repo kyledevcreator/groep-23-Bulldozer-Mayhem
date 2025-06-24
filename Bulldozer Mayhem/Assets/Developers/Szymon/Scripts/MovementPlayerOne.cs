@@ -9,6 +9,10 @@ public class MovementPlayerOne : MonoBehaviour
     [SerializeField] private PlayerStatistic p1, p2;
     private PlayerStatistic activePlayer;
     public PlayerEnum player;
+    public LayerMask platform;
+    private int onRoofFrames;
+
+    [SerializeField] private float roofFixTorque, roofFixForce;
 
     public enum PlayerEnum
     {
@@ -52,9 +56,20 @@ public class MovementPlayerOne : MonoBehaviour
         }
         Debug.Log("Collision ended");
     }
-
     void FixedUpdate()
     {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.up, out hit, 3, platform))
+        {
+            onRoofFrames++;
+        }
+
+        if (onRoofFrames > 60)
+        {
+            rb.AddForce(Vector3.up * roofFixForce, ForceMode.Impulse);
+            rb.AddTorque(Vector3.right * roofFixTorque, ForceMode.Impulse);
+            onRoofFrames = 0;
+        }
         if (hasGrip && player == PlayerEnum.Player1)
         {
             if (Input.GetKey(KeyCode.W))
