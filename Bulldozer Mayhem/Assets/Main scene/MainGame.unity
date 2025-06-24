@@ -724,7 +724,7 @@ PrefabInstance:
     - target: {fileID: 5255462782022791535, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
       propertyPath: m_Drag
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5255462782022791535, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
@@ -3753,7 +3753,7 @@ PrefabInstance:
     - target: {fileID: 5255462782022791535, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
       propertyPath: m_Drag
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5255462782022791535, guid: 2952515df85286b4598d658b2850265f,
         type: 3}
