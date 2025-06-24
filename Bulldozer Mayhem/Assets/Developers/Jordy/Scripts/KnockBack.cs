@@ -15,7 +15,6 @@ public class Knockback : MonoBehaviour
     private PlayerStatistic me, opponent;
     public PlayerEnum player;
     private float powerValue;
-    //0 = fwd, 1 = left, 2 = right, 3 = back
 
     private void Start()
     {
