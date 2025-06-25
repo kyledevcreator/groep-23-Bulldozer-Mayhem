@@ -13,6 +13,7 @@ public class PlayerLives : MonoBehaviour
     private Collider playerCollider;
     private Rigidbody rb;
     private bool isInvincible = false;
+    private bool imPlayer1;
 
     void Start()
     {
@@ -28,7 +29,17 @@ public class PlayerLives : MonoBehaviour
     }
     public void SpawnPlayerAtStart()
     {
-        SpawnOnRandomPlatform(); 
+        //SpawnOnRandomPlatform();
+        if (GetComponent<MovementPlayerOne>().player == MovementPlayerOne.PlayerEnum.Player1)
+        {
+            Respawn(true);
+            imPlayer1 = true;
+        }
+        else
+        {
+            Respawn(false);
+            imPlayer1 = false;
+        }
     }
 
     private void Update()
@@ -52,23 +63,33 @@ public class PlayerLives : MonoBehaviour
             }
             else
             {
-                Respawn();
+                Respawn(imPlayer1);
             }
         }
     }
 
-    void Respawn()
+    void Respawn(bool isPlayer1)
     {
-        SpawnOnRandomPlatform(); 
+        if (isPlayer1)
+        {
+            transform.position = new Vector3(0.87f, 74.57f, -7.11f);
+            transform.rotation = Quaternion.Euler(0, 45, 0);
+        }
+        else
+        {
+            transform.position = new Vector3(11, 75, 5);
+            transform.rotation = Quaternion.Euler(0, 225, 0);
+        }
+        //SpawnOnRandomPlatform(); 
     }
 
     private void SpawnOnRandomPlatform()
     {
-        Transform platform = GameManager.Instance.GetUniqueRandomPlatform();
+        Transform platform = GameManager.Instance.GetUniqueRandomSpawnPositions();
 
         if (platform != null)
         {
-            Vector3 spawnPosition = platform.transform.position + new Vector3(0, 0, 0);
+            Vector3 spawnPosition = platform.position + new Vector3(0, 0, 0);
             transform.position = spawnPosition;
             Debug.Log($"Spawning player on: {platform.name} at {spawnPosition}");
         }

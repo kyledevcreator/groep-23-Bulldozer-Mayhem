@@ -189,7 +189,7 @@ public class GameManager : MonoBehaviour
         availablePlatforms = GetActivePlatforms();
     }
 
-    public Transform GetUniqueRandomPlatform()
+    public Transform GetUniqueRandomSpawnPositions()
     {
         if (availablePlatforms.Count == 0)
             return null;

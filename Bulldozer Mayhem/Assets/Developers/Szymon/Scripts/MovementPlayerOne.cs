@@ -112,7 +112,7 @@ public class MovementPlayerOne : MonoBehaviour
             {
 
                 //transform.Translate(0, 0, 1 * Time.deltaTime * movementSpeed);
-                rb.AddForce(transform.forward * movementSpeed);
+                rb.AddForce(transform.forward * (movementSpeed + activePlayer.gasSpeedBonus));
 
             }
 
@@ -121,7 +121,7 @@ public class MovementPlayerOne : MonoBehaviour
             {
 
                 //transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
-                rb.AddTorque(Vector3.up * rotationSpeed, ForceMode.Force);
+                rb.AddTorque(Vector3.up * (rotationSpeed + activePlayer.torqueSpeedBonus), ForceMode.Force);
 
             }
 
@@ -130,7 +130,7 @@ public class MovementPlayerOne : MonoBehaviour
             {
 
                 //transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
-                rb.AddTorque(-Vector3.up * rotationSpeed, ForceMode.Force);
+                rb.AddTorque(-Vector3.up * (rotationSpeed + activePlayer.torqueSpeedBonus), ForceMode.Force);
 
             }
 
@@ -139,7 +139,7 @@ public class MovementPlayerOne : MonoBehaviour
             {
 
                 //transform.Translate(0, 0, -1 * Time.deltaTime * movementSpeed);
-                rb.AddForce(-transform.forward * movementSpeed);
+                rb.AddForce(-transform.forward * (movementSpeed + activePlayer.reverseSpeedBonus));
 
             }
         }
