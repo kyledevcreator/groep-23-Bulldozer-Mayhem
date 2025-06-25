@@ -862,8 +862,8 @@ MonoBehaviour:
   platform:
     serializedVersion: 2
     m_Bits: 8
-  roofFixTorque: 100
-  roofFixForce: 100
+  roofFixTorque: 40
+  roofFixForce: 50
 --- !u!82 &4325121393293055249
 AudioSource:
   m_ObjectHideFlags: 0
