@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private List<GameObject> spawnedObjects = new();
 
     public float objectLifetime = 5f;
-    public Material SecondMaterial;
+    public Material platformMaterial;
 
     public GameObject winnerPanel;
     public TextMeshProUGUI winnerText;
@@ -87,9 +87,9 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(spawnDelayPlatform);
 
         Renderer renderer = platform.GetComponent<Renderer>();
-        if (renderer != null && SecondMaterial != null)
+        if (renderer != null && platformMaterial != null)
         {
-            renderer.material = SecondMaterial;
+            renderer.material.color = Color.red;
         }
 
         yield return new WaitForSeconds(3.0f);
