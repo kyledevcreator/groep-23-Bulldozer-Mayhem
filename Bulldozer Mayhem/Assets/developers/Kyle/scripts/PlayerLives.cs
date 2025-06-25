@@ -20,23 +20,21 @@ public class PlayerLives : MonoBehaviour
         playerCollider = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
 
-        // Get the player name from PlayerPrefs
         if (CompareTag("Player1"))
             playerName = PlayerPrefs.GetString("Player1Name", "Player 1");
         else if (CompareTag("Player2"))
             playerName = PlayerPrefs.GetString("Player2Name", "Player 2");
 
         UpdateLivesUI();
-        // Don't call SpawnOnRandomPlatform here anymore
     }
     public void SpawnPlayerAtStart()
     {
-        SpawnOnRandomPlatform(); // uses unique spawn list
+        SpawnOnRandomPlatform(); 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if (other.CompareTag("DeathBoundary") && !isInvincible)
+        if (transform.position.y < 50)
         {
             LoseLife();
         }
@@ -62,7 +60,7 @@ public class PlayerLives : MonoBehaviour
 
     void Respawn()
     {
-        SpawnOnRandomPlatform(); // You can decide whether to reuse unique spawn or general active platform
+        SpawnOnRandomPlatform(); 
     }
 
     private void SpawnOnRandomPlatform()
@@ -88,9 +86,6 @@ public class PlayerLives : MonoBehaviour
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
             rb.rotation = Quaternion.identity;
-            // Comment this out temporarily if there's a problem
-            // rb.Sleep();
-            // rb.WakeUp();
         }
 
         gameObject.SetActive(true);

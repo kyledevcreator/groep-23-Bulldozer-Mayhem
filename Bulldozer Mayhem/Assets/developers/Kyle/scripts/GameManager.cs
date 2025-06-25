@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
             controlSceneButton.SetActive(false);
         }
 
-        ResetAvailablePlatforms(); // Ensures platform list is ready before spawning
+        ResetAvailablePlatforms(); 
 
         player1.GetComponent<PlayerLives>().SpawnPlayerAtStart();
         player2.GetComponent<PlayerLives>().SpawnPlayerAtStart();
@@ -179,13 +179,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    // Used by PlayerLives.cs to find valid respawn platforms
     public List<GameObject> GetActivePlatforms()
     {
         return platforms.FindAll(p => p != null && p.activeInHierarchy);
     }
 
-    //  New methods for unique spawn selection
     public void ResetAvailablePlatforms()
     {
         availablePlatforms = GetActivePlatforms();
@@ -202,3 +200,4 @@ public class GameManager : MonoBehaviour
         return platform;
     }
 }
+
