@@ -54,7 +54,6 @@ public class MovementPlayerOne : MonoBehaviour
         {
             hasGrip = false;
         }
-        Debug.Log("Collision ended");
     }
     void FixedUpdate()
     {
