@@ -24,7 +24,6 @@ public class PlayerLives : MonoBehaviour
             playerName = PlayerPrefs.GetString("Player1Name", "Player 1");
         else if (CompareTag("Player2"))
             playerName = PlayerPrefs.GetString("Player2Name", "Player 2");
-
         UpdateLivesUI();
     }
     public void SpawnPlayerAtStart()
@@ -65,21 +64,19 @@ public class PlayerLives : MonoBehaviour
 
     private void SpawnOnRandomPlatform()
     {
-        GameObject platform = GameManager.Instance.GetUniqueRandomPlatform();
+        Transform platform = GameManager.Instance.GetUniqueRandomPlatform();
 
         if (platform != null)
         {
-            Vector3 spawnPosition = platform.transform.position + new Vector3(0, 3, 0);
-            Debug.Log($"Spawning player on: {platform.name} at {spawnPosition}");
+            Vector3 spawnPosition = platform.transform.position + new Vector3(0, 0, 0);
             transform.position = spawnPosition;
+            Debug.Log($"Spawning player on: {platform.name} at {spawnPosition}");
         }
         else
         {
             Debug.LogWarning("No platform available for spawn. Using Vector3.zero.");
             transform.position = Vector3.zero;
         }
-
-        transform.rotation = Quaternion.identity;
 
         if (rb != null)
         {

@@ -189,15 +189,15 @@ public class GameManager : MonoBehaviour
         availablePlatforms = GetActivePlatforms();
     }
 
-    public GameObject GetUniqueRandomPlatform()
+    public Transform GetUniqueRandomPlatform()
     {
         if (availablePlatforms.Count == 0)
             return null;
 
         int index = Random.Range(0, availablePlatforms.Count);
-        GameObject platform = availablePlatforms[index];
+        Transform platformChild = availablePlatforms[index].GetComponent<Transform>();
         availablePlatforms.RemoveAt(index);
-        return platform;
+        return platformChild;
     }
 }
 

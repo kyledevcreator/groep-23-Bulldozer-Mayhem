@@ -13,7 +13,6 @@ public class Exploder : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Front") || other.gameObject.CompareTag("Back") || other.gameObject.CompareTag("Left") || other.gameObject.CompareTag("Right"))
         {
-            Debug.Log("effects play");
             Explosion.gameObject.transform.position = transform.position;
             Explosion.Play();
         }
