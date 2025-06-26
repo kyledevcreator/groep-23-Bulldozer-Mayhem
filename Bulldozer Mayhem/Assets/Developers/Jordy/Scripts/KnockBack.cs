@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using static MovementPlayerOne;
 
 public class Knockback : MonoBehaviour
 {
@@ -9,16 +8,16 @@ public class Knockback : MonoBehaviour
     public Rigidbody rb;
     public Rigidbody OpponentRb;
 
-    public MonoBehaviour MovementScriptPlayer;
+    public MovementPlayerOne MovementScriptPlayer;
     public float DisableTime = 1.2f;
     [SerializeField] private PlayerStatistic p1, p2;
     private PlayerStatistic me, opponent;
-    public PlayerEnum player;
+    public MovementPlayerOne.PlayerEnum player;
     private float powerValue;
 
     private void Start()
     {
-        if (player == PlayerEnum.Player1)
+        if (player == MovementPlayerOne.PlayerEnum.Player1)
         {
             me = p1;
             opponent = p2;
@@ -53,6 +52,7 @@ public class Knockback : MonoBehaviour
         {
             rb.AddForce(-rb.velocity.normalized * force * (1 / me.frontStrength), ForceMode.Impulse);
             OpponentRb.AddForce(rb.velocity.normalized * addedForce * (1 / opponent.frontStrength), ForceMode.Impulse);
+            StartCoroutine(DisableMovement());
         }
 
 
@@ -60,35 +60,30 @@ public class Knockback : MonoBehaviour
         {
             rb.AddForce(-rb.velocity.normalized * force * (1 / me.backStrength), ForceMode.Impulse);
             OpponentRb.AddForce(rb.velocity.normalized * addedForce * (3 / opponent.backStrength), ForceMode.Impulse);
+            StartCoroutine(DisableMovement());
         }
 
         if (other.gameObject.tag == "Left")
         {
             rb.AddForce(-rb.velocity.normalized * force * (1 / me.leftStrength), ForceMode.Impulse);
             OpponentRb.AddForce(rb.velocity.normalized * addedForce * (2 / opponent.leftStrength), ForceMode.Impulse);
+            StartCoroutine(DisableMovement());
         }
 
         if (other.gameObject.tag == "Right")
         {
             rb.AddForce(-rb.velocity.normalized * force * (1 / me.rightStrength), ForceMode.Impulse);
             OpponentRb.AddForce(rb.velocity.normalized * addedForce * (2 / opponent.rightStrength), ForceMode.Impulse);
+            StartCoroutine(DisableMovement());
         }
     }
 
 
     IEnumerator DisableMovement()
     {
-        if (MovementScriptPlayer != null)
-        {
-
-            //Zet het Movement script uit voor een halve seconde wanneer de spelers colliden.
-            MovementScriptPlayer.enabled = false;
-
-            yield return new WaitForSeconds(DisableTime);
-
-            //Zet het Movement script weer aan.
-            MovementScriptPlayer.enabled = true;
-        }
+        MovementScriptPlayer.gasAllowed = false;
+        yield return new WaitForSeconds(0.25f);
+        MovementScriptPlayer.gasAllowed = true;
     }
 
 }

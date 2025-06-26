@@ -11,6 +11,7 @@ public class MovementPlayerOne : MonoBehaviour
     public PlayerEnum player;
     public LayerMask platform;
     private int onRoofFrames;
+    public bool gasAllowed = true;
 
     [SerializeField] private float roofFixTorque, roofFixForce;
 
@@ -71,7 +72,7 @@ public class MovementPlayerOne : MonoBehaviour
         }
         if (hasGrip && player == PlayerEnum.Player1)
         {
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.W) && gasAllowed)
             {
 
                 //transform.Translate(0, 0, 1 * Time.deltaTime * movementSpeed);
@@ -98,7 +99,7 @@ public class MovementPlayerOne : MonoBehaviour
             }
 
             //Move back
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.S) && gasAllowed)
             {
 
                 //transform.Translate(0, 0, -1 * Time.deltaTime * movementSpeed);
@@ -108,7 +109,7 @@ public class MovementPlayerOne : MonoBehaviour
         }
         else if (hasGrip && player == PlayerEnum.Player2)
         {
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.UpArrow) && gasAllowed)
             {
 
                 //transform.Translate(0, 0, 1 * Time.deltaTime * movementSpeed);
@@ -135,7 +136,7 @@ public class MovementPlayerOne : MonoBehaviour
             }
 
             //Move back
-            if (Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKey(KeyCode.DownArrow) && gasAllowed)
             {
 
                 //transform.Translate(0, 0, -1 * Time.deltaTime * movementSpeed);
