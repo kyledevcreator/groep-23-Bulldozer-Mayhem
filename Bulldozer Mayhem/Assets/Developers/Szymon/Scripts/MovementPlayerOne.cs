@@ -71,7 +71,7 @@ public class MovementPlayerOne : MonoBehaviour
             rb.AddTorque(Vector3.right * roofFixTorque, ForceMode.Impulse);
             onRoofFrames = 0;
         }
-        if (hasGrip && player == PlayerEnum.Player1)
+        if (hasGrip && player == PlayerEnum.Player2)
         {
             if (Input.GetKey(KeyCode.W) && gasAllowed)
             {
@@ -108,7 +108,7 @@ public class MovementPlayerOne : MonoBehaviour
 
             }
         }
-        else if (hasGrip && player == PlayerEnum.Player2)
+        else if (hasGrip && player == PlayerEnum.Player1)
         {
             if (Input.GetKey(KeyCode.UpArrow) && gasAllowed)
             {
