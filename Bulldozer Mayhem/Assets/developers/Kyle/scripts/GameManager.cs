@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    [SerializeField] private GameStatus gameStatus;
+
     [SerializeField] private List<GameObject> platforms;
     [SerializeField] private float minDelay, maxDelay, spawnDelayPlatform;
     [SerializeField] private float minDelayObjectSpawn, maxDelayObjectSpawn, spawnDelay;
@@ -20,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject winnerPanel;
     public TextMeshProUGUI winnerText;
+    [SerializeField] private TextMeshProUGUI roundCount;
     public GameObject player1;
     public GameObject player2;
 
@@ -31,6 +34,8 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        gameStatus.currentRound++;
+        roundCount.text = "Round " + gameStatus.currentRound.ToString();
         if (Instance == null)
         {
             Instance = this;
