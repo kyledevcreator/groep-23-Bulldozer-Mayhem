@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
-using System.Collections.Generic;
 
 public class PlayerLives : MonoBehaviour
 {
@@ -25,11 +24,12 @@ public class PlayerLives : MonoBehaviour
             playerName = PlayerPrefs.GetString("Player1Name", "Player 1");
         else if (CompareTag("Player2"))
             playerName = PlayerPrefs.GetString("Player2Name", "Player 2");
+
         UpdateLivesUI();
     }
+
     public void SpawnPlayerAtStart()
     {
-        //SpawnOnRandomPlatform();
         if (GetComponent<MovementPlayerOne>().player == MovementPlayerOne.PlayerEnum.Player1)
         {
             Respawn(true);
@@ -80,30 +80,11 @@ public class PlayerLives : MonoBehaviour
             transform.position = new Vector3(11, 75, 5);
             transform.rotation = Quaternion.Euler(0, 225, 0);
         }
-        //SpawnOnRandomPlatform(); 
-    }
-
-    private void SpawnOnRandomPlatform()
-    {
-        Transform platform = GameManager.Instance.GetUniqueRandomSpawnPositions();
-
-        if (platform != null)
-        {
-            Vector3 spawnPosition = platform.position + new Vector3(0, 0, 0);
-            transform.position = spawnPosition;
-            Debug.Log($"Spawning player on: {platform.name} at {spawnPosition}");
-        }
-        else
-        {
-            Debug.LogWarning("No platform available for spawn. Using Vector3.zero.");
-            transform.position = Vector3.zero;
-        }
 
         if (rb != null)
         {
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
-            rb.rotation = Quaternion.identity;
         }
 
         gameObject.SetActive(true);
