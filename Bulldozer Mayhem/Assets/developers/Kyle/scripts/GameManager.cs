@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             float randomTime = Random.Range(minDelayObjectSpawn, maxDelayObjectSpawn);
-            GameObject newObject = Instantiate(spawnObjectPrefabs[Random.Range(0, spawnedObjects.Count)], GetRandomPosition(), Quaternion.identity);
+            GameObject newObject = Instantiate(spawnObjectPrefabs[Random.Range(0, spawnObjectPrefabs.Count)], GetRandomPosition(), Quaternion.identity);
             StartCoroutine(DestroyAfterTime(newObject, objectLifetime));
             yield return new WaitForSeconds(randomTime);
         }
