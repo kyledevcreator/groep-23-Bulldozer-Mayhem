@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [SerializeField] private GameStatus gameStatus;
+    [SerializeField] private PlayerStatistic player1Stat, player2Stat;
+
 
     [SerializeField] private List<GameObject> platforms;
     [SerializeField] private float minDelay, maxDelay, spawnDelayPlatform;
@@ -20,9 +22,9 @@ public class GameManager : MonoBehaviour
     public float objectLifetime = 5f;
     public Material platformMaterial;
 
-    public GameObject winnerPanel;
     public TextMeshProUGUI winnerText;
     [SerializeField] private TextMeshProUGUI roundCount;
+    [SerializeField] private TextMeshProUGUI p1text, p2text;
     public GameObject player1;
     public GameObject player2;
 
@@ -31,6 +33,24 @@ public class GameManager : MonoBehaviour
     private int playersAlive = 2;
 
     private List<GameObject> availablePlatforms = new List<GameObject>();
+
+    public GameObject shopPanel;
+    [SerializeField] private List<TextMeshProUGUI> shopTexts = new();
+    [SerializeField] private List<string> shopItems = new();
+
+
+    [SerializeField] private float deltaGas;
+    [SerializeField] private float deltaReverse;
+    [SerializeField] private float deltaFrontS;
+    [SerializeField] private float deltaBackS;
+    [SerializeField] private float deltaLeftS;
+    [SerializeField] private float deltaRightS;
+    [SerializeField] private float deltaFrontP;
+    [SerializeField] private float deltaBackP;
+    [SerializeField] private float deltaLeftP;
+    [SerializeField] private float deltaRightP;
+    [SerializeField] private float deltaRotation;
+    //deze deleten en logica voor welke speler nog toevoegen
 
     void Awake()
     {
@@ -50,7 +70,7 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(StartNewRound());
         StartCoroutine(GravityDelay());
-        winnerPanel.SetActive(false);
+        shopPanel.SetActive(false);
 
         if (controlSceneButton != null)
         {
@@ -149,13 +169,9 @@ public class GameManager : MonoBehaviour
         playersAlive--;
         player.SetActive(false);
 
-        if (playersAlive == 1)
+        if (playersAlive <= 1)
         {
             FindWinner();
-        }
-        else if (playersAlive == 0)
-        {
-            RestartGame();
         }
     }
 
@@ -163,14 +179,14 @@ public class GameManager : MonoBehaviour
     {
         if (!player1.activeSelf)
         {
-            winnerText.text = "Player 2 Wins!";
+            winnerText.text = "Player 2 Wins! They choose their powerup first!";
         }
         else if (!player2.activeSelf)
         {
-            winnerText.text = "Player 1 Wins!";
+            winnerText.text = "Player 1 Wins! They choose their powerup first!";
         }
-
-        winnerPanel.SetActive(true);
+        BuildShop();
+        shopPanel.SetActive(true);
         Time.timeScale = 0f;
     }
 
@@ -181,7 +197,7 @@ public class GameManager : MonoBehaviour
 
     void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("MainGame");
     }
 
     public List<GameObject> GetActivePlatforms()
@@ -203,6 +219,68 @@ public class GameManager : MonoBehaviour
         Transform platformChild = availablePlatforms[index].GetComponent<Transform>();
         availablePlatforms.RemoveAt(index);
         return platformChild;
+    }
+
+
+    private void BuildShop()
+    {
+        for (int i = 0; i < shopTexts.Count; i++)
+        {
+            shopTexts[i].text = shopItems[Random.Range(0, shopItems.Count)];
+        }
+
+    }
+
+
+    private void ApplyButton(string powerup)
+    {
+        if (powerup == "Step on da gas!")
+        {
+            deltaGas = 50;
+            deltaReverse = 25;
+            deltaFrontS = 0;
+            deltaBackS = 0;
+            deltaLeftS = 0;
+            deltaRightS = 0;
+            deltaFrontP = 0;
+            deltaBackP = 0;
+            deltaLeftP = 0;
+            deltaRightP = 0;
+            deltaRotation = 0;
+        }
+        else if (powerup == "Put it in reverse!")
+        {
+            deltaGas = 15;
+            deltaReverse = 75;
+            deltaFrontS = 0;
+            deltaBackS = 2;
+            deltaLeftS = 0;
+            deltaRightS = 0;
+            deltaFrontP = 0;
+            deltaBackP = 0;
+            deltaLeftP = 0;
+            deltaRightP = 0;
+            deltaRotation = 0;
+        }
+        else if (powerup == "Sleeper build!")
+        {
+            deltaGas = -20;
+            deltaReverse = -20;
+            deltaFrontS = 2;
+            deltaBackS = 2;
+            deltaLeftS = 2;
+            deltaRightS = 2;
+            deltaFrontP = 5;
+            deltaBackP = 5;
+            deltaLeftP = 5;
+            deltaRightP = 5;
+            deltaRotation = 0;
+        }
+    }
+
+    public void Button(int button)
+    {
+        ApplyButton(shopTexts[button].text);
     }
 }
 

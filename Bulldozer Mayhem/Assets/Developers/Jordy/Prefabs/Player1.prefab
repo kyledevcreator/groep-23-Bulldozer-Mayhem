@@ -804,7 +804,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 5
   m_Drag: 1
-  m_AngularDrag: 1.5
+  m_AngularDrag: 2.5
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -862,6 +862,7 @@ MonoBehaviour:
   platform:
     serializedVersion: 2
     m_Bits: 8
+  gasAllowed: 0
   roofFixTorque: 40
   roofFixForce: 50
 --- !u!82 &4325121393293055249
@@ -987,6 +988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   livesText: {fileID: 0}
+  gameStatus: {fileID: 11400000, guid: 1f6c4061cee9cdb42aa48379cb96077f, type: 2}
 --- !u!4 &3177153194455574705 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4ac0da663fc95484e975e0528e767abf,

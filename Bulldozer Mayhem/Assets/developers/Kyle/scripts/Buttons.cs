@@ -73,4 +73,19 @@ public class Buttons : MonoBehaviour
 
         isPaused = !isPaused; 
     }
+
+
+
+    public void ShopOption1()
+    {
+        
+    }
+    public void ShopOption2()
+    {
+
+    }
+    public void ShopOption3()
+    {
+
+    }
 }

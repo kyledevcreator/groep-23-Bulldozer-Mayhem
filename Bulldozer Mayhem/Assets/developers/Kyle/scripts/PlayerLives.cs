@@ -4,8 +4,9 @@ using System.Collections;
 
 public class PlayerLives : MonoBehaviour
 {
-    public int lives = 3;
+    public int lives = 1;
     public TextMeshProUGUI livesText;
+    [SerializeField] private GameStatus gameStatus;
 
     private string playerName;
     private Renderer playerRenderer;
@@ -22,12 +23,12 @@ public class PlayerLives : MonoBehaviour
 
         if (CompareTag("Player1"))
         {
-            playerName = PlayerPrefs.GetString("Player1Name", "Player 1");
+            playerName = gameStatus.player1Name;
             otherPlayer = GameObject.FindGameObjectWithTag("Player2");
         }
         else if (CompareTag("Player2"))
         {
-            playerName = PlayerPrefs.GetString("Player2Name", "Player 2");
+            playerName = gameStatus.player2Name;
             otherPlayer = GameObject.FindGameObjectWithTag("Player1");
         }
 
@@ -148,7 +149,7 @@ public class PlayerLives : MonoBehaviour
     {
         if (livesText != null)
         {
-            livesText.text = $"{playerName}: Lives: {lives}";
+            livesText.text = playerName;
         }
     }
 }

@@ -6,6 +6,7 @@ public class ControlSceneManager : MonoBehaviour
 {
     public TMP_InputField player1NameInputField;  // Input field for Player 1's name
     public TMP_InputField player2NameInputField;  // Input field for Player 2's name
+    [SerializeField] private GameStatus gameStatus;
 
     // This function will be called when the "Start Game" button is clicked
     public void StartGame()
@@ -21,14 +22,11 @@ public class ControlSceneManager : MonoBehaviour
         if (string.IsNullOrEmpty(player2Name))
             player2Name = "Player 2";
 
-        // Save player names using PlayerPrefs
-        PlayerPrefs.SetString("Player1Name", player1Name);
-        PlayerPrefs.SetString("Player2Name", player2Name);
-        PlayerPrefs.Save(); // Make sure the changes are saved
-
-        // Debugging: Check if the names are saved correctly
-        Debug.Log("Saved Player 1 Name: " + PlayerPrefs.GetString("Player1Name"));
-        Debug.Log("Saved Player 2 Name: " + PlayerPrefs.GetString("Player2Name"));
+        gameStatus.player1Name = player1Name;
+        gameStatus.player2Name = player2Name;
+        gameStatus.currentRound = 0;
+        gameStatus.player1Wins = 0;
+        gameStatus.player2Wins = 0;
 
         // Load the Main Game Scene
         SceneManager.LoadScene("MainGame"); // Make sure the scene name matches your main game scene
