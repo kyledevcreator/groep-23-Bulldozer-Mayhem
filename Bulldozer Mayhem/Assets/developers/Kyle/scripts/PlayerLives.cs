@@ -9,21 +9,27 @@ public class PlayerLives : MonoBehaviour
 
     private string playerName;
     private Renderer playerRenderer;
-    private Collider playerCollider;
     private Rigidbody rb;
     private bool isInvincible = false;
     private bool imPlayer1;
 
+    private GameObject otherPlayer;
+
     void Start()
     {
         playerRenderer = GetComponent<Renderer>();
-        playerCollider = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
 
         if (CompareTag("Player1"))
+        {
             playerName = PlayerPrefs.GetString("Player1Name", "Player 1");
+            otherPlayer = GameObject.FindGameObjectWithTag("Player2");
+        }
         else if (CompareTag("Player2"))
+        {
             playerName = PlayerPrefs.GetString("Player2Name", "Player 2");
+            otherPlayer = GameObject.FindGameObjectWithTag("Player1");
+        }
 
         UpdateLivesUI();
     }
@@ -94,7 +100,8 @@ public class PlayerLives : MonoBehaviour
     private IEnumerator InvincibilityPhase()
     {
         isInvincible = true;
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("ParentLayer"), LayerMask.NameToLayer("ParentLayer"), true);
+
+        SetIgnoreCollisionWithOtherPlayer(true);
 
         float blinkDuration = 5f;
         float blinkInterval = 0.25f;
@@ -116,8 +123,25 @@ public class PlayerLives : MonoBehaviour
             playerRenderer.enabled = true;
         }
 
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("ParentLayer"), LayerMask.NameToLayer("ParentLayer"), false);
+        SetIgnoreCollisionWithOtherPlayer(false);
+
         isInvincible = false;
+    }
+
+    private void SetIgnoreCollisionWithOtherPlayer(bool ignore)
+    {
+        if (otherPlayer == null) return;
+
+        Collider[] myColliders = GetComponentsInChildren<Collider>();
+        Collider[] theirColliders = otherPlayer.GetComponentsInChildren<Collider>();
+
+        foreach (var myCol in myColliders)
+        {
+            foreach (var theirCol in theirColliders)
+            {
+                Physics.IgnoreCollision(myCol, theirCol, ignore);
+            }
+        }
     }
 
     void UpdateLivesUI()
