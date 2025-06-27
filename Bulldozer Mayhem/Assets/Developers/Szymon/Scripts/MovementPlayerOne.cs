@@ -11,7 +11,7 @@ public class MovementPlayerOne : MonoBehaviour
     public PlayerEnum player;
     public LayerMask platform;
     private int onRoofFrames;
-    public bool gasAllowed = true;
+    public bool gasAllowed;
 
     [SerializeField] private float roofFixTorque, roofFixForce;
 
@@ -28,6 +28,7 @@ public class MovementPlayerOne : MonoBehaviour
         else
             activePlayer = p2;
         rb = GetComponent<Rigidbody>();
+        gasAllowed = true;
     }
 
 

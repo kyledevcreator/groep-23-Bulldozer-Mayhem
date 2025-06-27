@@ -82,6 +82,7 @@ public class Knockback : MonoBehaviour
     IEnumerator DisableMovement()
     {
         MovementScriptPlayer.gasAllowed = false;
+        MovementScriptPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
         yield return new WaitForSeconds(0.25f);
         MovementScriptPlayer.gasAllowed = true;
     }
