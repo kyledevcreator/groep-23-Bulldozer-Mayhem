@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        firstChoosing = true;
         playersAlive = 2;
         gameStatus.currentRound++;
         roundCount.text = "Round " + gameStatus.currentRound.ToString();
@@ -194,7 +195,6 @@ public class GameManager : MonoBehaviour
             winnerText.text = "Player 1 (" + player1.GetComponent<PlayerLives>().playerName + ") Wins! They choose their powerup first!";
             currentStatistic = player1Stat;
         }
-        firstChoosing = true;
         BuildShop();
         shopPanel.SetActive(true);
         Time.timeScale = 0f;
@@ -313,6 +313,10 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f;
             RestartGame();
             shopPanel.SetActive(false);
+        }
+        else
+        {
+            Time.timeScale = 0f;
         }
 
         if (currentStatistic == player1Stat)
