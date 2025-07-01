@@ -87,8 +87,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        gameStatus.currentRound++;
         UpdateMusicVolume(); 
     }
 
