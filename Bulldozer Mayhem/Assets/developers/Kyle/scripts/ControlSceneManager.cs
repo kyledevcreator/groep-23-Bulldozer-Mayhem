@@ -34,10 +34,10 @@ public class ControlSceneManager : MonoBehaviour
         player2.reverseSpeedBonus = 0;
         player1.torqueSpeedBonus = 0;
         player2.torqueSpeedBonus = 0;
-        player1.frontStrength = 1;
-        player2.frontStrength = 1;
-        player1.backStrength = 1;
-        player2.backStrength = 1;
+        player1.frontStrength = 2;
+        player2.frontStrength = 2;
+        player1.backStrength = 0;
+        player2.backStrength = 0;
         player1.leftStrength = 1;
         player2.leftStrength = 1;
         player1.rightStrength = 1;

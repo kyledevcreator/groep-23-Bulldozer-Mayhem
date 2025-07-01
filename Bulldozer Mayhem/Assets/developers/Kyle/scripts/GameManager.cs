@@ -301,7 +301,7 @@ public class GameManager : MonoBehaviour
             deltaRightS = 0;
             deltaFrontP = 0;
             deltaBackP = 0;
-            deltaLeftP = 50;
+            deltaLeftP = 200;
             deltaRightP = 0;
             deltaDragRotation = 0;
         }
@@ -317,7 +317,7 @@ public class GameManager : MonoBehaviour
             deltaFrontP = 0;
             deltaBackP = 0;
             deltaLeftP = 0;
-            deltaRightP = 50;
+            deltaRightP = 200;
             deltaDragRotation = 0;
         }
         ApplyDeltas();
