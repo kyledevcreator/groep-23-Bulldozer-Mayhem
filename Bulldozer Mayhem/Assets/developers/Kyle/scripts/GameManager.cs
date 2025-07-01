@@ -186,12 +186,12 @@ public class GameManager : MonoBehaviour
     {
         if (!player1.activeSelf)
         {
-            winnerText.text = "Player 2 Wins! They choose their powerup first!";
+            winnerText.text = "Player 2 (" + player2.GetComponent<PlayerLives>().playerName + ") Wins! They choose their powerup first!";
             currentStatistic = player2Stat;
         }
         else if (!player2.activeSelf)
         {
-            winnerText.text = "Player 1 Wins! They choose their powerup first!";
+            winnerText.text = "Player 1 (" + player2.GetComponent<PlayerLives>().playerName + ") Wins! They choose their powerup first!";
             currentStatistic = player1Stat;
         }
         firstChoosing = true;
@@ -318,10 +318,12 @@ public class GameManager : MonoBehaviour
         if (currentStatistic == player1Stat)
         {
             currentStatistic = player2Stat;
+            winnerText.text = "Player 2 (" + player2.GetComponent<PlayerLives>().playerName + ") may now select their powerup!";
         }
         else
         {
             currentStatistic = player1Stat;
+            winnerText.text = "Player 1 (" + player1.GetComponent<PlayerLives>().playerName + ") may now select their powerup!";
         }
         firstChoosing = false;
     }

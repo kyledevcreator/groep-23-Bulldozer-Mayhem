@@ -7,6 +7,7 @@ public class ControlSceneManager : MonoBehaviour
     public TMP_InputField player1NameInputField;  // Input field for Player 1's name
     public TMP_InputField player2NameInputField;  // Input field for Player 2's name
     [SerializeField] private GameStatus gameStatus;
+    [SerializeField] private PlayerStatistic player1, player2;
 
     // This function will be called when the "Start Game" button is clicked
     public void StartGame()

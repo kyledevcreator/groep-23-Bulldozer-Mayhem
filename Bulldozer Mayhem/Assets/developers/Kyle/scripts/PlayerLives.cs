@@ -8,7 +8,7 @@ public class PlayerLives : MonoBehaviour
     public TextMeshProUGUI livesText;
     [SerializeField] private GameStatus gameStatus;
 
-    private string playerName;
+    public string playerName;
     private Renderer playerRenderer;
     private Rigidbody rb;
     private bool isInvincible = false;

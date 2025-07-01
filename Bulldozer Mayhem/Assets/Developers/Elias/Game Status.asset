@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc1155b467540b42bbd095f6b579ad4, type: 3}
   m_Name: Game Status
   m_EditorClassIdentifier: 
-  currentRound: 0
+  currentRound: 2
   player1Wins: 0
   player2Wins: 0
   roundType: 0
-  player1Name: LowTierGod
-  player2Name: Gordon Ramsay
+  player1Name: p1
+  player2Name: p2

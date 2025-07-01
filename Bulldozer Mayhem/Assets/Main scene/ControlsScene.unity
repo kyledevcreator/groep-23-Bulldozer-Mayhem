@@ -1263,6 +1263,8 @@ MonoBehaviour:
   player1NameInputField: {fileID: 757880911}
   player2NameInputField: {fileID: 869527595}
   gameStatus: {fileID: 11400000, guid: 1f6c4061cee9cdb42aa48379cb96077f, type: 2}
+  player1: {fileID: 11400000, guid: b4a3422c74c85bb4c84a98b71232b878, type: 2}
+  player2: {fileID: 11400000, guid: 201cf59d34d8e864890967cad44d3eb1, type: 2}
 --- !u!4 &1205261373
 Transform:
   m_ObjectHideFlags: 0
