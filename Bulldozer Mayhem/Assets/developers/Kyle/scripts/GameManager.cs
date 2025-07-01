@@ -248,7 +248,7 @@ public class GameManager : MonoBehaviour
         if (powerup == "Step on da gas!")
         {
             deltaGas = 50;
-            deltaReverse = 25;
+            deltaReverse = -20;
             deltaTorque = 0;
             deltaFrontS = 0;
             deltaBackS = 0;
@@ -262,7 +262,7 @@ public class GameManager : MonoBehaviour
         }
         else if (powerup == "Put it in reverse!")
         {
-            deltaGas = 15;
+            deltaGas = -30;
             deltaReverse = 75;
             deltaTorque = 0;
             deltaFrontS = 0;
@@ -277,17 +277,17 @@ public class GameManager : MonoBehaviour
         }
         else if (powerup == "Sleeper build!")
         {
-            deltaGas = -20;
-            deltaReverse = -20;
-            deltaTorque = 0;
+            deltaGas = -40;
+            deltaReverse = -40;
+            deltaTorque = -40;
             deltaFrontS = 2;
-            deltaBackS = 2;
-            deltaLeftS = 2;
-            deltaRightS = 2;
-            deltaFrontP = 5;
-            deltaBackP = 5;
-            deltaLeftP = 5;
-            deltaRightP = 5;
+            deltaBackS = 1.25f;
+            deltaLeftS = 1.25f;
+            deltaRightS = 1.25f;
+            deltaFrontP = 50;
+            deltaBackP = 50;
+            deltaLeftP = 50;
+            deltaRightP = 50;
             deltaDragRotation = 0;
         }
         else if (powerup == "Lefty!")
@@ -297,11 +297,11 @@ public class GameManager : MonoBehaviour
             deltaTorque = 0;
             deltaFrontS = 0;
             deltaBackS = 0;
-            deltaLeftS = 10;
+            deltaLeftS = 2;
             deltaRightS = 0;
             deltaFrontP = 0;
             deltaBackP = 0;
-            deltaLeftP = 10;
+            deltaLeftP = 50;
             deltaRightP = 0;
             deltaDragRotation = 0;
         }
@@ -313,11 +313,11 @@ public class GameManager : MonoBehaviour
             deltaFrontS = 0;
             deltaBackS = 0;
             deltaLeftS = 0;
-            deltaRightS = 10;
+            deltaRightS = 2;
             deltaFrontP = 0;
             deltaBackP = 0;
             deltaLeftP = 0;
-            deltaRightP = 10;
+            deltaRightP = 50;
             deltaDragRotation = 0;
         }
         ApplyDeltas();
@@ -343,28 +343,29 @@ public class GameManager : MonoBehaviour
     {
         ApplyButton(shopTexts[button].text);
         shopButtons[button].SetActive(false);
-        if (!firstChoosing)
+
+        if (firstChoosing)
         {
-            Time.timeScale = 1f;
-            RestartGame();
-            shopPanel.SetActive(false);
-        }
-        else
-        {
+            firstChoosing = false;
+
+            if (currentStatistic == player1Stat)
+            {
+                currentStatistic = player2Stat;
+                winnerText.text = "Player 2 (" + player2.GetComponent<PlayerLives>().playerName + ") may now select their powerup!";
+            }
+            else
+            {
+                currentStatistic = player1Stat;
+                winnerText.text = "Player 1 (" + player1.GetComponent<PlayerLives>().playerName + ") may now select their powerup!";
+            }
             Time.timeScale = 0f;
         }
-
-        if (currentStatistic == player1Stat)
-        {
-            currentStatistic = player2Stat;
-            winnerText.text = "Player 2 (" + player2.GetComponent<PlayerLives>().playerName + ") may now select their powerup!";
-        }
         else
         {
-            currentStatistic = player1Stat;
-            winnerText.text = "Player 1 (" + player1.GetComponent<PlayerLives>().playerName + ") may now select their powerup!";
+            Time.timeScale = 1f;
+            shopPanel.SetActive(false);
+            RestartGame();
         }
-        firstChoosing = false;
     }
 }
 
