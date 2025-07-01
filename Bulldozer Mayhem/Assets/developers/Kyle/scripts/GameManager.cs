@@ -53,12 +53,27 @@ public class GameManager : MonoBehaviour
     private float deltaRightP;
     private float deltaRotation;
 
+    public PhysicMaterial slipperyMaterial; 
+
+    [SerializeField] private Light sceneLight;
+
+    [SerializeField] private AudioSource cheerAudioSource;
+    [SerializeField] private AudioClip cheerClip;
+    [SerializeField] private float maxCheerVolume = 0.5f;
+    [SerializeField] private int maxRounds = 10;
+    [SerializeField] private AudioSource musicAudioSource;
+
     void Awake()
     {
         firstChoosing = true;
         playersAlive = 2;
         gameStatus.currentRound++;
         roundCount.text = "Round " + gameStatus.currentRound.ToString();
+
+        AdjustLightIntensity();
+
+        gameStatus.roundType = (Random.Range(0, 4) == 0) ? GameStatus.RoundType.ice : GameStatus.RoundType.standard;
+
         foreach (GameObject button in shopButtons)
         {
             button.SetActive(true);
@@ -72,7 +87,26 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        gameStatus.currentRound++;
+        UpdateMusicVolume(); 
     }
+
+    private void AdjustLightIntensity()
+    {
+        if (sceneLight == null) return;
+
+        int maxRounds = 10;
+        float startIntensity = 1.99f;
+        float endIntensity = 0f;
+
+        int currentRound = Mathf.Clamp(gameStatus.currentRound, 1, maxRounds);
+
+        float t = (float)(currentRound - 1) / (maxRounds - 1); 
+        sceneLight.intensity = Mathf.Lerp(startIntensity, endIntensity, t);
+    }
+
+
 
     void Start()
     {
@@ -85,11 +119,48 @@ public class GameManager : MonoBehaviour
             controlSceneButton.SetActive(false);
         }
 
-        ResetAvailablePlatforms(); 
+        ResetAvailablePlatforms();
 
         player1.GetComponent<PlayerLives>().SpawnPlayerAtStart();
         player2.GetComponent<PlayerLives>().SpawnPlayerAtStart();
+
+        if (gameStatus.roundType == GameStatus.RoundType.ice)
+        {
+            ApplyIceToPlatforms();
+        }
+
+        if (cheerAudioSource != null && cheerClip != null)
+        {
+            cheerAudioSource.clip = cheerClip;
+            cheerAudioSource.loop = true;
+            cheerAudioSource.Play();
+            UpdateCheerVolume();
+        }
+
+        UpdateMusicVolume();
     }
+
+    private void ApplyIceToPlatforms()
+    {
+        foreach (GameObject platform in platforms)
+        {
+            if (platform != null)
+            {
+                Renderer rend = platform.GetComponent<Renderer>();
+                if (rend != null)
+                {
+                    rend.material.color = new Color(0.6f, 0.9f, 1f); 
+                }
+
+                Collider col = platform.GetComponent<Collider>();
+                if (col != null && slipperyMaterial != null)
+                {
+                    col.material = slipperyMaterial;
+                }
+            }
+        }
+    }
+
 
     private IEnumerator GravityDelay()
     {
@@ -231,6 +302,38 @@ public class GameManager : MonoBehaviour
         return platformChild;
     }
 
+    private void UpdateCheerVolume()
+    {
+        if (cheerAudioSource == null) return;
+
+        int round = gameStatus.currentRound;
+
+        if (round < 7)
+        {
+            cheerAudioSource.volume = 0f;
+        }
+        else
+        {
+            cheerAudioSource.volume = Mathf.Clamp01(0.05f * (round - 6));
+        }
+    }
+
+    private void UpdateMusicVolume()
+    {
+        if (musicAudioSource == null) return;
+
+        int round = gameStatus.currentRound;
+
+        if (round >= 7)
+        {
+            musicAudioSource.volume = 0f;
+        }
+        else
+        {
+            float fadeAmount = 1f - ((float)(round - 1) / 6f); 
+            musicAudioSource.volume = Mathf.Clamp01(fadeAmount);
+        }
+    }
 
     private void BuildShop()
     {
@@ -240,6 +343,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
 
 
     private void ApplyButton(string powerup)
