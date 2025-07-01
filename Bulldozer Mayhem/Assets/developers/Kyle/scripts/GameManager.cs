@@ -446,7 +446,7 @@ public class GameManager : MonoBehaviour
         shopButtons[button].SetActive(false);
         if (firstChoosing)
         {
-            firstChoosing = false;
+            firstChoosing = false;  
             if (currentStatistic == player1Stat)
             {
                 currentStatistic = player2Stat;
