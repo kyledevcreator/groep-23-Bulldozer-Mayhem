@@ -1761,6 +1761,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0d9ce8fbfb2dde49b7b4cb2eb379b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1013351784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7181604402686724520, guid: 301af3d1330643a4ba9379dc12f111c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 764183277}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1040979104
 GameObject:
   m_ObjectHideFlags: 0
@@ -3154,6 +3160,7 @@ MonoBehaviour:
   - {fileID: 764183281}
   - {fileID: 764183280}
   - {fileID: 764183279}
+  mainPlatform: {fileID: 1013351784}
   minDelay: 1
   maxDelay: 8
   spawnDelayPlatform: 3
@@ -3187,7 +3194,9 @@ MonoBehaviour:
   shopItems:
   - Foot on da gas!
   - Put it in reverse!
-  - Sleeper Build
+  - Sleeper Build!
+  - Lefty!
+  - Righteous!
   slipperyMaterial: {fileID: 13400000, guid: 422a30759e8f0a84798e663e68ce22f0, type: 2}
   sceneLight: {fileID: 2005492250}
   cheerAudioSource: {fileID: 1892443152}

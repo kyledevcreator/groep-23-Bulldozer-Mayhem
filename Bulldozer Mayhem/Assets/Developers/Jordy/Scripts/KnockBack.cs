@@ -59,21 +59,21 @@ public class Knockback : MonoBehaviour
         if (other.gameObject.tag == "Back")
         {
             rb.AddForce(-rb.velocity.normalized * force * (1 / Mathf.Log(opponent.frontStrength + 1)), ForceMode.Impulse);
-            OpponentRb.AddForce(rb.velocity.normalized * addedForce * (1 / opponent.backStrength), ForceMode.Impulse);
+            OpponentRb.AddForce(rb.velocity.normalized * addedForce * (1 / Mathf.Log(opponent.frontStrength + 1)), ForceMode.Impulse);
             StartCoroutine(DisableMovement());
         }
 
         if (other.gameObject.tag == "Left")
         {
             rb.AddForce(-rb.velocity.normalized * force * (1 / Mathf.Log(opponent.frontStrength + 1)), ForceMode.Impulse);
-            OpponentRb.AddForce(rb.velocity.normalized * addedForce * (1 / opponent.leftStrength), ForceMode.Impulse);
+            OpponentRb.AddForce(rb.velocity.normalized * addedForce * (1 / Mathf.Log(opponent.frontStrength + 1)), ForceMode.Impulse);
             StartCoroutine(DisableMovement());
         }
 
         if (other.gameObject.tag == "Right")
         {
             rb.AddForce(-rb.velocity.normalized * force * (1 / Mathf.Log(opponent.frontStrength + 1)), ForceMode.Impulse);
-            OpponentRb.AddForce(rb.velocity.normalized * addedForce * (1 / opponent.rightStrength), ForceMode.Impulse);
+            OpponentRb.AddForce(rb.velocity.normalized * addedForce * (1 / Mathf.Log(opponent.frontStrength + 1)), ForceMode.Impulse);
             StartCoroutine(DisableMovement());
         }
     }

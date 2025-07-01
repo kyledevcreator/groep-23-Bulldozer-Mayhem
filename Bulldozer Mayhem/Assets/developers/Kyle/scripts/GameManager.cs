@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
 
     [SerializeField] private List<GameObject> platforms;
+    [SerializeField] private GameObject mainPlatform;
     [SerializeField] private float minDelay, maxDelay, spawnDelayPlatform;
     [SerializeField] private float minDelayObjectSpawn, maxDelayObjectSpawn, spawnDelay;
 
@@ -157,6 +158,16 @@ public class GameManager : MonoBehaviour
                     col.material = slipperyMaterial;
                 }
             }
+        }
+        Renderer mainRend = mainPlatform.GetComponent<Renderer>();
+        if (mainRend != null)
+        {
+            mainRend.material.color = new Color(0.6f, 0.9f, 1f);
+        }
+        Collider mainCol = mainPlatform.GetComponent<Collider>();
+        if (mainCol != null && slipperyMaterial != null)
+        {
+            mainCol.material = slipperyMaterial;
         }
     }
 
@@ -446,7 +457,7 @@ public class GameManager : MonoBehaviour
         shopButtons[button].SetActive(false);
         if (firstChoosing)
         {
-            firstChoosing = false;  
+            firstChoosing = false;
             if (currentStatistic == player1Stat)
             {
                 currentStatistic = player2Stat;
