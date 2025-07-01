@@ -28,6 +28,30 @@ public class ControlSceneManager : MonoBehaviour
         gameStatus.currentRound = 0;
         gameStatus.player1Wins = 0;
         gameStatus.player2Wins = 0;
+        player1.gasSpeedBonus = 0;
+        player2.gasSpeedBonus = 0;
+        player1.reverseSpeedBonus = 0;
+        player2.reverseSpeedBonus = 0;
+        player1.torqueSpeedBonus = 0;
+        player2.torqueSpeedBonus = 0;
+        player1.frontStrength = 2;
+        player2.frontStrength = 2;
+        player1.backStrength = 0;
+        player2.backStrength = 0;
+        player1.leftStrength = 1;
+        player2.leftStrength = 1;
+        player1.rightStrength = 1;
+        player2.rightStrength = 1;
+        player1.frontPower = 0;
+        player2.frontPower = 0;
+        player1.backPower = 0;
+        player2.backPower = 0;
+        player1.leftPower = 0;
+        player2.leftPower = 0;
+        player1.rightPower = 0;
+        player2.rightPower = 0;
+        player1.rotationalDragBonus = 0;
+        player2.rotationalDragBonus = 0;
 
         // Load the Main Game Scene
         SceneManager.LoadScene("MainGame"); // Make sure the scene name matches your main game scene
