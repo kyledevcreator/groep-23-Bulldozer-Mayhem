@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
 
     private float deltaGas;
     private float deltaReverse;
+    private float deltaTorque;
     private float deltaFrontS;
     private float deltaBackS;
     private float deltaLeftS;
@@ -51,7 +52,7 @@ public class GameManager : MonoBehaviour
     private float deltaBackP;
     private float deltaLeftP;
     private float deltaRightP;
-    private float deltaRotation;
+    private float deltaDragRotation;
 
     void Awake()
     {
@@ -248,6 +249,7 @@ public class GameManager : MonoBehaviour
         {
             deltaGas = 50;
             deltaReverse = 25;
+            deltaTorque = 0;
             deltaFrontS = 0;
             deltaBackS = 0;
             deltaLeftS = 0;
@@ -256,12 +258,13 @@ public class GameManager : MonoBehaviour
             deltaBackP = 0;
             deltaLeftP = 0;
             deltaRightP = 0;
-            deltaRotation = 0;
+            deltaDragRotation = 0;
         }
         else if (powerup == "Put it in reverse!")
         {
             deltaGas = 15;
             deltaReverse = 75;
+            deltaTorque = 0;
             deltaFrontS = 0;
             deltaBackS = 2;
             deltaLeftS = 0;
@@ -270,12 +273,13 @@ public class GameManager : MonoBehaviour
             deltaBackP = 0;
             deltaLeftP = 0;
             deltaRightP = 0;
-            deltaRotation = 0;
+            deltaDragRotation = 0;
         }
         else if (powerup == "Sleeper build!")
         {
             deltaGas = -20;
             deltaReverse = -20;
+            deltaTorque = 0;
             deltaFrontS = 2;
             deltaBackS = 2;
             deltaLeftS = 2;
@@ -284,7 +288,7 @@ public class GameManager : MonoBehaviour
             deltaBackP = 5;
             deltaLeftP = 5;
             deltaRightP = 5;
-            deltaRotation = 0;
+            deltaDragRotation = 0;
         }
         ApplyDeltas();
     }
@@ -301,7 +305,7 @@ public class GameManager : MonoBehaviour
         currentStatistic.backPower += deltaBackP;
         currentStatistic.leftPower += deltaLeftP;
         currentStatistic.rightPower += deltaRightP;
-        currentStatistic.rotationalDragBonus += deltaRotation;
+        currentStatistic.rotationalDragBonus += deltaDragRotation;
     }
 
     public void Button(int button)
