@@ -30,32 +30,39 @@ public class GameManager : MonoBehaviour
 
     public GameObject controlSceneButton;
 
-    private int playersAlive = 2;
+    private int playersAlive;
+    private bool firstChoosing;
 
     private List<GameObject> availablePlatforms = new List<GameObject>();
 
     public GameObject shopPanel;
+    [SerializeField] private List<GameObject> shopButtons = new();
     [SerializeField] private List<TextMeshProUGUI> shopTexts = new();
     [SerializeField] private List<string> shopItems = new();
+    private PlayerStatistic currentStatistic;
 
-
-    [SerializeField] private float deltaGas;
-    [SerializeField] private float deltaReverse;
-    [SerializeField] private float deltaFrontS;
-    [SerializeField] private float deltaBackS;
-    [SerializeField] private float deltaLeftS;
-    [SerializeField] private float deltaRightS;
-    [SerializeField] private float deltaFrontP;
-    [SerializeField] private float deltaBackP;
-    [SerializeField] private float deltaLeftP;
-    [SerializeField] private float deltaRightP;
-    [SerializeField] private float deltaRotation;
-    //deze deleten en logica voor welke speler nog toevoegen
+    private float deltaGas;
+    private float deltaReverse;
+    private float deltaFrontS;
+    private float deltaBackS;
+    private float deltaLeftS;
+    private float deltaRightS;
+    private float deltaFrontP;
+    private float deltaBackP;
+    private float deltaLeftP;
+    private float deltaRightP;
+    private float deltaRotation;
 
     void Awake()
     {
+        playersAlive = 2;
         gameStatus.currentRound++;
         roundCount.text = "Round " + gameStatus.currentRound.ToString();
+        foreach (GameObject button in shopButtons)
+        {
+            button.SetActive(true);
+        }
+
         if (Instance == null)
         {
             Instance = this;
@@ -168,7 +175,7 @@ public class GameManager : MonoBehaviour
     {
         playersAlive--;
         player.SetActive(false);
-
+        Debug.Log(playersAlive);
         if (playersAlive <= 1)
         {
             FindWinner();
@@ -180,11 +187,14 @@ public class GameManager : MonoBehaviour
         if (!player1.activeSelf)
         {
             winnerText.text = "Player 2 Wins! They choose their powerup first!";
+            currentStatistic = player2Stat;
         }
         else if (!player2.activeSelf)
         {
             winnerText.text = "Player 1 Wins! They choose their powerup first!";
+            currentStatistic = player1Stat;
         }
+        firstChoosing = true;
         BuildShop();
         shopPanel.SetActive(true);
         Time.timeScale = 0f;
@@ -276,11 +286,44 @@ public class GameManager : MonoBehaviour
             deltaRightP = 5;
             deltaRotation = 0;
         }
+        ApplyDeltas();
+    }
+
+    private void ApplyDeltas()
+    {
+        currentStatistic.gasSpeedBonus += deltaGas;
+        currentStatistic.reverseSpeedBonus += deltaReverse;
+        currentStatistic.frontStrength += deltaFrontS;
+        currentStatistic.backStrength += deltaBackS;
+        currentStatistic.leftStrength += deltaLeftS;
+        currentStatistic.rightStrength += deltaRightS;
+        currentStatistic.frontPower += deltaFrontP;
+        currentStatistic.backPower += deltaBackP;
+        currentStatistic.leftPower += deltaLeftP;
+        currentStatistic.rightPower += deltaRightP;
+        currentStatistic.rotationalDragBonus += deltaRotation;
     }
 
     public void Button(int button)
     {
         ApplyButton(shopTexts[button].text);
+        shopButtons[button].SetActive(false);
+        if (!firstChoosing)
+        {
+            Time.timeScale = 1f;
+            RestartGame();
+            shopPanel.SetActive(false);
+        }
+
+        if (currentStatistic == player1Stat)
+        {
+            currentStatistic = player2Stat;
+        }
+        else
+        {
+            currentStatistic = player1Stat;
+        }
+        firstChoosing = false;
     }
 }
 

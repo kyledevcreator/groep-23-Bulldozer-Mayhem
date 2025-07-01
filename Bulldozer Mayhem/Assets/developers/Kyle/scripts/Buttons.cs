@@ -78,14 +78,14 @@ public class Buttons : MonoBehaviour
 
     public void ShopOption1()
     {
-        
+        GameManager.Instance.Button(0);
     }
     public void ShopOption2()
     {
-
+        GameManager.Instance.Button(1);
     }
     public void ShopOption3()
     {
-
+        GameManager.Instance.Button(2);
     }
 }

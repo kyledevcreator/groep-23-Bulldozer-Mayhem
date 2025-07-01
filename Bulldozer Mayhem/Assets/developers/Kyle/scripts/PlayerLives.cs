@@ -4,7 +4,7 @@ using System.Collections;
 
 public class PlayerLives : MonoBehaviour
 {
-    public int lives = 1;
+    public int lives;
     public TextMeshProUGUI livesText;
     [SerializeField] private GameStatus gameStatus;
 
@@ -18,6 +18,7 @@ public class PlayerLives : MonoBehaviour
 
     void Start()
     {
+        lives = 1;
         playerRenderer = GetComponent<Renderer>();
         rb = GetComponent<Rigidbody>();
 
@@ -51,7 +52,7 @@ public class PlayerLives : MonoBehaviour
 
     private void Update()
     {
-        if (transform.position.y < 50)
+        if (transform.position.y < 60)
         {
             LoseLife();
         }
