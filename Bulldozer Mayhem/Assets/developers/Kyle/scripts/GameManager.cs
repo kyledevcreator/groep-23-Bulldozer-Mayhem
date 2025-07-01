@@ -297,6 +297,7 @@ public class GameManager : MonoBehaviour
     {
         currentStatistic.gasSpeedBonus += deltaGas;
         currentStatistic.reverseSpeedBonus += deltaReverse;
+        currentStatistic.torqueSpeedBonus += deltaTorque;
         currentStatistic.frontStrength += deltaFrontS;
         currentStatistic.backStrength += deltaBackS;
         currentStatistic.leftStrength += deltaLeftS;
