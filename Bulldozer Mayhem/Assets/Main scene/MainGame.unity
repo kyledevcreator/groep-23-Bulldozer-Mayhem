@@ -3470,7 +3470,9 @@ MonoBehaviour:
   shopItems:
   - Foot on da gas!
   - Put it in reverse!
-  - Sleeper Build
+  - Sleeper Build!
+  - Lefty!
+  - Righteous!
 --- !u!1 &1935614280
 GameObject:
   m_ObjectHideFlags: 0

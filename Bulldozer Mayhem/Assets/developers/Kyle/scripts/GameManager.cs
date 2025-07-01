@@ -290,6 +290,36 @@ public class GameManager : MonoBehaviour
             deltaRightP = 5;
             deltaDragRotation = 0;
         }
+        else if (powerup == "Lefty!")
+        {
+            deltaGas = -20;
+            deltaReverse = -20;
+            deltaTorque = 0;
+            deltaFrontS = 0;
+            deltaBackS = 0;
+            deltaLeftS = 10;
+            deltaRightS = 0;
+            deltaFrontP = 0;
+            deltaBackP = 0;
+            deltaLeftP = 10;
+            deltaRightP = 0;
+            deltaDragRotation = 0;
+        }
+        else if (powerup == "Righteous!")
+        {
+            deltaGas = -20;
+            deltaReverse = -20;
+            deltaTorque = 0;
+            deltaFrontS = 0;
+            deltaBackS = 0;
+            deltaLeftS = 0;
+            deltaRightS = 10;
+            deltaFrontP = 0;
+            deltaBackP = 0;
+            deltaLeftP = 0;
+            deltaRightP = 10;
+            deltaDragRotation = 0;
+        }
         ApplyDeltas();
     }
 
