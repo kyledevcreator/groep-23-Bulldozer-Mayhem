@@ -191,7 +191,7 @@ public class GameManager : MonoBehaviour
         }
         else if (!player2.activeSelf)
         {
-            winnerText.text = "Player 1 (" + player2.GetComponent<PlayerLives>().playerName + ") Wins! They choose their powerup first!";
+            winnerText.text = "Player 1 (" + player1.GetComponent<PlayerLives>().playerName + ") Wins! They choose their powerup first!";
             currentStatistic = player1Stat;
         }
         firstChoosing = true;
