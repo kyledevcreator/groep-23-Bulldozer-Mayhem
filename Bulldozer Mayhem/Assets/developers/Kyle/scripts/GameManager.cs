@@ -375,7 +375,7 @@ public class GameManager : MonoBehaviour
         }
         else if (powerup == "Put it in reverse!")
         {
-            deltaGas = 15;
+            deltaGas = -15;
             deltaReverse = 75;
             deltaFrontS = 0;
             deltaBackS = 2;
